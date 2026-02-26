@@ -1,34 +1,76 @@
 /* Contact Page */
 /* Section 1 */
 .initial-landing-contact {
-  background-image: url("/assets/images/contact/image\ \(15\).webp");
+  background-image: url("/assets/images/contact/image (15).webp");
   background-position: center;
   background-size: cover;
 }
 
 .section-2-contacts h1 {
   max-width: 40%;
-  
 }
 
 .section-3-contacts iframe {
-  height: 60vh; 
-  border-radius: 10px !important;
+  height: 60vh;
+  border-radius: 10px; /* remove !important unless needed */
 }
 
 .section-4-contacts hr {
-  max-width: 400px
+  max-width: 400px;
 }
 
-@media(max-width: 1199px) {
+/* Section 4 - Contact buttons hover */
+.section-4-contacts .contact-btn{
+  transition: background-color .25s ease-in-out,
+              transform .25s ease-in-out,
+              box-shadow .25s ease-in-out;
+}
+
+.section-4-contacts .contact-btn p{
+  transition: color .35s ease-in-out;
+}
+
+.section-4-contacts .contact-btn img{
+  transition: transform .35s ease-in-out; /* filter removed */
+}
+
+.section-4-contacts .contact-btn:hover{
+  background-color: #fdfdfd;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.section-4-contacts .contact-btn:hover p{
+  color: #000;
+}
+
+.section-4-contacts .contact-btn:hover img{
+  transform: translateX(3px);
+}
+
+
+@media (hover: none) {
+  .section-4-contacts .contact-btn:hover{
+    background-color: transparent;
+    transform: none;
+    box-shadow: none;
+  }
+  .section-4-contacts .contact-btn:hover p{
+    color: inherit;
+  }
+  .section-4-contacts .contact-btn:hover img{
+    transform: none;
+  }
+}
+
+@media (max-width: 1199px) {
   .contact-body {
     margin-top: 170px !important;
   }
 }
 
-@media(max-width: 576px) {
+@media (max-width: 576px) {
   .contact-body {
     margin-top: 140px !important;
   }
 }
-

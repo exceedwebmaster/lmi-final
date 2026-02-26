@@ -97,4 +97,41 @@
   max-width: 416px;
 }
 
+/* Section 7 Team Images - Hover Zoom + Bottom Shadow */
+.section-7-about .ex-hover-card{
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+  transition: box-shadow .28s ease, transform .28s ease;
+}
+
+.section-7-about .ex-hover-img{
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: scale(1);
+  transition: transform .38s ease;
+  will-change: transform;
+}
+
+.section-7-about .ex-hover-card:hover{
+  box-shadow: 0 10px 20px rgba(0,0,0,.9); /* bottom-heavy shadow */
+  transform: translateY(-4px);
+}
+
+.section-7-about .ex-hover-card:hover .ex-hover-img{
+  transform: scale(1.03);
+}
+
+/* Optional: smoother on touch devices (prevents sticky hover weirdness) */
+@media (hover: none) {
+  .section-7-about .ex-hover-card:hover{
+    box-shadow: none;
+    transform: none;
+  }
+  .section-7-about .ex-hover-card:hover .ex-hover-img{
+    transform: none;
+  }
+}
+
 
