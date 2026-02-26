@@ -278,3 +278,76 @@
 
   }
 }
+
+.loader-logo-wrap{
+  position: relative;
+  width: 220px;           /* adjust to your desired box size */
+  height: 140px;
+  display: grid;
+  place-items: center;
+}
+
+.loader-logo-img{
+  width: 160px;           /* logo size */
+  height: auto;
+  display: block;
+  z-index: 2;
+}
+
+/* The animated frame (your style) */
+.loader-frame{
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;    /* optional */
+  --c: no-repeat linear-gradient(#000 0 0); /* change color here */
+
+  background:
+    var(--c) 0 38px,
+    var(--c) right 18px bottom 18px,
+    var(--c) right 18px top    18px,
+    var(--c) 18px 18px,
+    var(--c) 18px 100%,
+    var(--c) 100% 100%,
+    var(--c) 100% 0,
+    var(--c) 0 0;
+
+  animation:
+    l8-1 2s infinite,
+    l8-2 2s infinite;
+}
+
+
+/* Fullscreen overlay */
+.loader-overlay{
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;          /* change if you want */
+  z-index: 9999;
+}
+
+/* Hide animation (fade out) */
+.loader-overlay.is-hidden{
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 250ms ease, visibility 250ms ease;
+}
+
+/* Your loader */
+.loader {
+  width: 60px;
+  aspect-ratio: 1;
+  --g: conic-gradient(from -90deg at 10px 10px,#000 90deg,#0000 0);
+  background: var(--g), var(--g), var(--g);
+  background-size: 50% 50%;
+  animation: l18 1s infinite;
+}
+
+@keyframes l18 {
+  0%   {background-position:0     0, 10px 10px, 20px 20px}
+  33%  {background-position:-30px 0, 10px 10px, 20px 20px}
+  66%  {background-position:-30px 0, 10px 40px, 20px 20px}
+  100% {background-position:-30px 0, 10px 40px, 50px 20px}
+}

@@ -554,3 +554,48 @@ svg {
 } */
 
 
+/* Professional hover for CTA links + buttons */
+.btn-hover {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  will-change: transform;
+}
+
+.btn-hover:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.btn-hover:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.10);
+}
+
+/* Optional: subtle arrow movement */
+.btn-hover .btn-arrow,
+.btn-hover img {
+  transition: transform 180ms ease;
+}
+
+.btn-hover:hover .btn-arrow,
+.btn-hover:hover img {
+  transform: translateX(3px);
+}
+
+/* Keyboard accessibility */
+.btn-hover:focus-visible {
+  outline: 2px solid rgba(0,0,0,0.55);
+  outline-offset: 3px;
+}
+
+
+
+
+/* Debug: force footer second row visible */
+.footer-second-row {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  overflow: visible !important;
+  position: relative !important;
+}
