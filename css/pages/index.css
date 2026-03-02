@@ -261,7 +261,7 @@
 
 /* Section 6 */
 .section-6 > div > div > .carousel-inner .carousel-item p:nth-of-type(1){
-  max-width: 900px;
+  max-width: 900px; 
   color: #d0d0d0;
 }
 
@@ -273,15 +273,14 @@
   min-height: 350px;
 }
 
-/* Section 6 - carousel indicator dots (3 circles) */
-.section-6 #carouselExampleDark .carousel-indicators [data-bs-target]{
+.section-6 #carouselExampleDark .carousel-indicators [data-bs-target] {
   background-color: #ffffff !important;
-  opacity: 0.8; /* inactive dots - brighter */
+  opacity: 0.85;
 }
 
-.section-6 #carouselExampleDark .carousel-indicators .active{
+.section-6 #carouselExampleDark .carousel-indicators .active {
   background-color: #ffffff !important;
-  opacity: 1; /* active dot */
+  opacity: 1;
 }
 
 .contact-form-section {
