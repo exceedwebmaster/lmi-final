@@ -315,7 +315,31 @@ async function injectSharedComponents() {
 
 document.addEventListener('DOMContentLoaded', () => {
   injectSharedComponents();
+  initLandingParallax();
 });
+function initLandingParallax() {
+  const landing = document.getElementById('landing');
+  if (!landing) return;
+
+  let ticking = false;
+
+  const update = () => {
+    const rect = landing.getBoundingClientRect();
+    const offset = -rect.top * 0.35;
+    landing.style.setProperty('--landing-parallax', `${offset}px`);
+    ticking = false;
+  };
+
+  const requestTick = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(update);
+  };
+
+  window.addEventListener('scroll', requestTick, { passive: true });
+  window.addEventListener('resize', requestTick);
+  update();
+}
 
 
 // ================= Update Year =================
@@ -371,11 +395,35 @@ if (typeof Fancybox !== "undefined") {
 // ================= Email =================
 function sendEmail(e) {
   e.preventDefault();
+  const emailInput = document.querySelector("#user-email");
+  const phoneInput = document.querySelector("#user-phone");
+  const emailValue = emailInput?.value.trim() || "";
+  const phoneValue = phoneInput?.value.trim() || "";
+
+  if (emailInput) emailInput.setCustomValidity("");
+  if (phoneInput) phoneInput.setCustomValidity("");
+
+  // Ensure email is properly formatted.
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (emailInput && !emailPattern.test(emailValue)) {
+    emailInput.setCustomValidity("Please enter a valid email address.");
+    emailInput.reportValidity();
+    return;
+  }
+
+  // Ensure phone contains digits only.
+  const phonePattern = /^[0-9]+$/;
+  if (phoneInput && !phonePattern.test(phoneValue)) {
+    phoneInput.setCustomValidity("Phone number must contain numbers only.");
+    phoneInput.reportValidity();
+    return;
+  }
+
   const templateParams = {
     firstname: document.querySelector("#first-name")?.value.trim() || "",
     lastname: document.querySelector("#last-name")?.value.trim() || "",
-    useremail: document.querySelector("#user-email")?.value.trim() || "",
-    userphone: document.querySelector("#user-phone")?.value.trim() || "",
+    useremail: emailValue,
+    userphone: phoneValue,
     usermessage: document.querySelector("#user-message")?.value.trim() || "",
   };
 
@@ -428,3 +476,4 @@ function sendEmail(e) {
 
 
   
+
