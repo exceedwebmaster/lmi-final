@@ -12,6 +12,8 @@
   font-family: "Lunasima";
 }
 
+
+
 :root {
   /*Color Variable*/
   --primary-color: #585858;
@@ -223,13 +225,16 @@
 }
 
 .max-width-1920 {
-  max-width: 1920px;
+  max-width: 1920px ;
   margin-inline: auto;
 }
 
 .navbar {
   background: transparent;
   z-index: 999;
+  position: fixed;
+  /* transition: Smooth color change when navbar background updates on scroll */
+  transition: background 0.3s ease;
 }
 
 nav > div {
@@ -269,7 +274,7 @@ nav > div {
 
 @media(max-width: 1199px) {
   .navbar-nav-home {
-    background-color: rgba(64, 64, 64, 0.3);
+    background-color: rgb(242, 244, 245);
   }
 }
 
@@ -420,11 +425,13 @@ nav div {
   }
 }
 
+
+
 @media (min-width: 1200px) {
 
   /* Index Page */
   .smaller-max-width {
-    width: 70%;
+    width: 75%;
   }
 
   .smallest-max-width {

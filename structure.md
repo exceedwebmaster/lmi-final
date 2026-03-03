@@ -99,7 +99,7 @@ images/
 ├── organizers/
 ├── resources/
 ├── room-dividers/
-├── specialty-products/
+├── expertise/
 ├── wardrobe-doors/
 └── wine-rooms/
 

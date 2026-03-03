@@ -32,16 +32,18 @@
 }
 /* Section 2 */
 .section-2-about h1 {
-  max-width: 30%;
+  max-width: 70%;
+  border-bottom: 0.2px solid rgba(187, 186, 186, 0.914);
+  padding-bottom: 20px;
 }
 
 .section-2-about h2 {
-  max-width: 33%;
+ font-size: 18px;
 }
 
 /* Section 3 */
 .section-3-about p {
-  max-width: 750px !important;
+  max-width: 800px !important;
 }
 
 /* Section 4 */
@@ -72,7 +74,12 @@
 
 /* Section 7  */
 .section-7-about h2 {
-  max-width: 30%;
+  max-width: 40%;
+}
+
+.section-7-about h3{
+  font-size: 40px;
+ letter-spacing:  1px;
 }
 
 .section-7-about .team-line div {
@@ -91,7 +98,48 @@
   margin-inline: auto;
   width: 40%;
   max-width: 370px;
+  transition: background-color .25s ease-in-out,
+              transform .25s ease-in-out,
+              box-shadow .25s ease-in-out;
 }
+
+.section-7-about a p {
+  transition: color .35s ease-in-out;
+}
+
+.section-7-about a img {
+  transition: transform .35s ease-in-out;
+}
+
+.section-7-about a:hover {
+  background-color: #fdfdfd;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.section-7-about a:hover p {
+  color: #000;
+}
+
+.section-7-about a:hover img {
+  transform: translateX(3px);
+}
+
+@media (hover: none) {
+  .section-7-about a:hover {
+    background-color: transparent;
+    transform: none;
+    box-shadow: none;
+  }
+  .section-7-about a:hover p {
+    color: inherit;
+  }
+  .section-7-about a:hover img {
+    transform: none;
+  }
+}
+
+
 
 .corporate-facility-section .warehouse-description{
   max-width: 416px;

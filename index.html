@@ -2,28 +2,39 @@
 <html lang="en">
 
 <head>
+  <!-- Meta: charset + responsive viewport -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Page title -->
   <title>Home</title>
 
-  <!-- Favicon -->
-  <link rel="icon" href="../assets/images/global/LMI-logo-blk-300dpi1.webp" type="image/webp">
+  <!-- Favicon icon -->
+  <link rel="icon" href="/assets/images/global/LMI-logo-blk-300dpi1.webp" type="image/webp">
 
-  <!-- Bootstrap -->
+  <!-- Bootstrap CSS framework -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 
-  <!-- Fonts -->
+  <!-- Google Fonts preload + font families -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet" />
 
+  <!-- Local styles: global + page-specific -->
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/pages/index.css" />
+
+  <!-- Animation + gallery libraries CSS -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
+  <!-- EmailJS SDK (email sending) -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- EmailJS init: set public key for sendEmail() -->
   <script type="text/javascript">
     (function () {
       emailjs.init({
@@ -33,228 +44,282 @@
   </script>
 </head>
 
-
-
-
-<!-- Full-screen loading overlay shown before the page finishes loading -->
-<div id="page-loader" class="loader-overlay">
-  <div class="loader"></div>
-</div>
-
-<!-- After the page loads, wait 1s then hide the loader by adding "is-hidden" -->
-<script>
-  window.addEventListener("load", () => {
-    const loader = document.getElementById("page-loader");
-    if (!loader) return;
-
-    const delayMs = 1000; // <- change this (milliseconds)
-    setTimeout(() => {
-      loader.classList.add("is-hidden");
-    }, delayMs);
-  });
-</script>
-
-
 <body>
+  <!-- Page loader overlay (shows while page loads) -->
+  <div id="page-loader" class="loader-overlay">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Loader logic: hide overlay 1s after window load -->
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("page-loader");
+      if (!loader) return;
+
+      const delayMs = 1000;
+      setTimeout(() => {
+        loader.classList.add("is-hidden");
+      }, delayMs);
+    });
+  </script>
+
+  <!-- Navbar mount point (injected by script.js) -->
   <div id="site-navbar"></div>
 
-<section class="initial-landing vh-100 w-100 p-3 p-md-4 p-xl-5" id="landing">
-    <div class="d-flex flex-column align-items-start  index-hero-1 max-layout ">
+  <!-- Hero/landing section (parallax background via CSS ::before) -->
+  <section class="initial-landing vh-100 w-100 p-3 p-md-4 p-xl-5" id="landing">
+    <!-- Hero left text block -->
+    <div class="d-flex flex-column align-items-start index-hero-1 max-layout">
       <h1 class="font-size-128 font-color-black font-libre line-height-80 " data-aos="fade-right">
         NOTHING SHORT OF EXCELLENCE
       </h1>
-      <h3 class="font-size-36 font-color-gray letter-spacing-10 mt-2 ps-3 line-height-95" data-aos="fade-right">OVER 50 YEARS OF QUALITY.<br> PERFORMANCE. PARTNERSHIP.</h3>
+      <h3 class="font-size-36 font-color-gray letter-spacing-10 mt-2 ps-3 line-height-95" data-aos="fade-right">
+        OVER 50 years of service to <br> the building industry
+      </h3>
     </div>
 
+    <!-- Hero bottom-right overlay text block -->
     <div class="d-flex flex-column align-items-center p-0 p-3 p-md-4 p-xl-5 index-hero-2 max-layout">
-      <h2 class=" text-center font-size-90 font-color-white font-libre" data-aos="fade-right">
+      <h2 class="text-center font-size-90 font-color-white font-libre" data-aos="fade-right">
         NOTHING SHORT OF EXCELLENCE
       </h2>
-      <h3 class="font-size-25 font-color-white text-center" data-aos="fade-right">OVER 50 YEARS OF QUALITY. INNOVATION. PARTNERSHIP.</h3>
+      <h3 class="font-size-25 font-color-white text-center" data-aos="fade-right">
+        OVER 50 YEARS OF QUALITY. INNOVATION. PARTNERSHIP.
+      </h3>
     </div>
 
+    <!-- CTA: scroll to product offerings -->
     <div class="explore-landing">
-      <p class="font-size-24 font-color-white" data-aos="fade-down">EXPLORE &#8595;</p>
+      <a href="#explore-products" class="text-decoration-none">
+        <p class="font-size-24 font-color-white m-0">EXPLORE &#8595;</p>
+      </a>
     </div>
   </section>
 
+  <!-- Section 2: Who we are intro + learn more button -->
   <section class="section-2 p-2 p-md-4 p-xl-5" id="example-anchor">
+    <!-- Mobile who-we-are header + about link -->
     <div class="product-offerings mt-3 mt-md-4 mt-xl-5 d-flex d-lg-none gap-4 align-items-center ">
-      <h2 class="who-text text-white text-center font-size-100 pt-4 pt-xl-5 letter-spacing-3 line-height-80 font-libre" data-aos="fade-right">
+      <h2 class="who-text text-white text-center font-size-100 pt-4 pt-xl-5 letter-spacing-3 line-height-80 font-libre"
+        data-aos="fade-right">
         WHO WE ARE
       </h2>
       <a href="/html/about.html"
-        class="w-100 px-3 py-md-3 py-1 px-md-4 mt-1 d-flex  justify-content-between align-items-center bg-transparent border-1 border-white text-decoration-none">
-        <p class="text-white font-lunasima font-size-16 m-0" data-aos="fade-right">ABOUT US</p>  <!-- Scroll transition -->
-        <img src="assets/images/index/right-arrow.svg" class="" alt=""  data-aos="fade-left" />
+        class="w-100 px-3 py-md-3 py-1 px-md-4 mt-1 d-flex justify-content-between align-items-center bg-transparent border-1 border-white text-decoration-none">
+        <p class="text-white font-lunasima font-size-16 m-0" data-aos="fade-right">ABOUT US</p>
+        <img src="/assets/images/index/right-arrow.svg" alt="" data-aos="fade-left" />
       </a>
     </div>
-    <div class="d-flex product-offerings gap-5  mt-3 mt-md-4 mt-xl-5 mb-4 mb-xl-5">
-      <div class=" d-none gap-3 flex-column d-lg-flex ">
-        <h2 class="text-white text-center font-size-100 pt-4 pt-xl-5 letter-spacing-3 line-height-80 font-libre" data-aos="fade-right">
+
+    <!-- Desktop who-we-are layout -->
+    <div class="d-flex product-offerings gap-5 mt-3 mt-md-4 mt-xl-5 mb-4 mb-xl-5">
+      <!-- Desktop header + learn more button -->
+      <div class="d-none gap-3 flex-column d-lg-flex ">
+        <h2 class="text-white text-center font-size-100 pt-4 pt-xl-5 letter-spacing-3 line-height-80 font-libre"
+          data-aos="fade-right">
           WHO WE ARE
         </h2>
-       <a href="/html/about.html"
-        class="w-100 about-us-button px-3 py-md-3 py-1 px-md-4 mt-1 mt-5 d-flex justify-content-between gap-2 align-items-center bg-transparent border-1 border-white text-decoration-none btn-hover"
-        data-aos="fade-right"
-        data-aos-duration="600"
-        data-aos-offset="150"
-        data-aos-once="true">
-        <p class="text-white font-lunasima font-size-16 m-0">ABOUT US</p>
-        <img src="/assets/images/index/right-arrow.svg" alt="" />
-      </a>
+        <a href="/html/about.html"
+          class="w-100 about-us-button px-3 py-md-3 py-1 px-md-4 mt-1 mt-5 d-flex justify-content-between gap-2 align-items-center bg-transparent border-1 border-white text-decoration-none btn-hover"
+          data-aos="fade-right" data-aos-duration="600" data-aos-offset="150" data-aos-once="true">
+          <p class="text-white font-lunasima font-size-16 m-0">LEARN MORE</p>
+          <img src="/assets/images/index/right-arrow.svg" alt="" />
+        </a>
       </div>
 
-      <div class="integrity home-2nd-section"
-        data-aos="fade-left"
-        data-aos-anchor="#example-anchor"
-        data-aos-offset="500"
-        data-aos-duration="500">
-        <p class="text-white fw-light ps-xl-5 font-size-24 mt-3 mt-md-4 font-lato" data-aos="fade-right"><!-- Scroll transition -->
+      <!-- Who-we-are description paragraph -->
+      <div class="integrity home-2nd-section" data-aos="fade-left" data-aos-anchor="#example-anchor"
+        data-aos-offset="500" data-aos-duration="500">
+        <p class="text-white fw-light ps-xl-5 font-size-24 mt-3 mt-md-4 font-lato" data-aos="fade-right">
           LMI sets the benchmark in shower enclosure and closet door fabrication.
           We deliver precision-engineered solutions that define quality, innovation, and reliability.
           <br><br>
-          Our commitment to craftsmanship and excellence ensures every project exceeds expectations, making LMI the standard others strive to achieve.
+          Our commitment to craftsmanship and excellence ensures every project exceeds expectations, making LMI the
+          standard others strive to achieve.
           <br><br>
           At LMI, integrity is not just a word; it's the foundation of our business.
-          We value it above all else, ensuring that our clients and partners can trust
-          in our every action. <br></br>
-          Our name reflects our ethos: our acronym, LMI, represents our strength,
-          discipline, and experience, while the swirl symbolizes our fluidity, creativity, and drive for continuous
-          innovation. This unique combination of elements defines LMI and the partnerships we have built and continue to
-          foster.
+          We value it above all else, ensuring that our clients and partners can trust in our every action.
+          <br><br>
+          Our name reflects our ethos: our acronym, LMI, represents our strength, discipline, and experience, while
+          the swirl symbolizes our fluidity, creativity, and drive for continuous innovation. This unique combination
+          of elements defines LMI and the partnerships we have built and continue to foster.
         </p>
       </div>
     </div>
   </section>
 
-  <div class="separator">
+  <!-- Separator divider -->
+  <div class="separator"></div>
 
-  </div>
-
-  <section class="section-3 p-2 p-md-4 p-xl-5 explore-products">
-    <div class=" mt-3 mt-md-4 mt-xl-5 pb-3 pb-md-4 pb-xl-5  product-offerings">
+  <!-- Section 3: Product offerings grid + Fancybox previews -->
+  <section class="section-3 p-2 p-md-4 p-xl-5 explore-products" id="explore-products">
+    <!-- Product offerings heading + intro -->
+    <div class="mt-3 mt-md-4 mt-xl-5 pb-3 pb-md-4 pb-xl-5 product-offerings">
       <h2
-        class="explore-product-text text-white font-size-100 pt-4 pt-xl-5 letter-spacing-3 line-height-80 font-libre text-center " data-aos="fade-right"><!-- Scroll transition -->
+        class="explore-product-text text-white font-size-100 pt-4 pt-xl-5 letter-spacing-3 line-height-80 font-libre text-center"
+        data-aos="fade-right">
         EXPLORE OUR PRODUCT OFFERINGS
-      </h2><!-- Scroll transition -->
-      <p class="font-lato font-size-24 font-color-white fw-light mt-4 ps-4" data-aos="fade-right">Committed to precision and quality, we
-        ensure every
-        project meets our highest standards.</p>
+      </h2>
+      <p class="font-lato font-size-24 font-color-white fw-light mt-4 ps-4" data-aos="fade-right">
+        Committed to precision and quality, we ensure every project meets our highest standards.
+      </p>
     </div>
 
-    <div class="row row-cols-sm-2 mt-4 mt-md-5 pb-3 product-offerings ">
+    <!-- Product row 1 -->
+    <div class="row row-cols-sm-2 mt-4 mt-md-5 pb-3 product-offerings">
       <div class="">
-        <img src="/assets/images/index/product-offerings/60590_90Series.webp" alt="" data-aos="fade-right"><!-- Scroll transition -->
+        <a data-fancybox="index-product-offerings" href="/assets/images/index/product-offerings/60590_90Series.webp">
+          <img src="/assets/images/index/product-offerings/60590_90Series.webp" alt="" data-aos="fade-right">
+        </a>
         <h3 class="font-lato fw-light font-color-white font-size-24 mt-4" data-aos="fade-right">SHOWER ENCLOSURES</h3>
-        <p class="font-lato fw-light font-color-white font-size-18 mt-3 shower-enclosures-text-description" data-aos="fade-right">Seamlessly
-          blend
-          modern
-          elegance and functionality, transforming any bathroom into a luxurious retreat. </p>
-
+        <p class="font-lato fw-light font-color-white font-size-18 mt-3 shower-enclosures-text-description"
+          data-aos="fade-right">
+          Seamlessly blend modern elegance and functionality, transforming any bathroom into a luxurious retreat.
+        </p>
       </div>
 
       <div class="mt-5 mt-sm-0">
-        <img src="/assets/images/index/product-offerings/400TUB-BIPASS3.webp" alt="" data-aos="fade-left"><!-- Scroll transition -->
+        <a data-fancybox="index-product-offerings" href="/assets/images/index/product-offerings/400TUB-BIPASS3.webp">
+          <img src="/assets/images/index/product-offerings/400TUB-BIPASS3.webp" alt="" data-aos="fade-left">
+        </a>
         <h3 class="font-lato fw-light font-color-white font-size-24 mt-4" data-aos="fade-left">WARDROBE DOORS</h3>
-        <p class="font-lato fw-light font-color-white font-size-18 mt-3 wardrobe-doors-description" data-aos="fade-left">Transform closets
-          into
-          organized and clutter-free spaces with a wide array of design options. </p>
-
+        <p class="font-lato fw-light font-color-white font-size-18 mt-3 wardrobe-doors-description" data-aos="fade-left">
+          Transform closets into organized and clutter-free spaces with a wide array of design options.
+        </p>
       </div>
     </div>
 
+    <!-- Product row 2 -->
     <div class="row row-cols-sm-2 mt-4 mt-md-5 mb-5 pb-3 product-offerings">
       <div class="">
-        <img src="/assets/images/index/product-offerings/SerifSFO_3Panel_Top Hung_WhiteLami_HalfOpencopy1.webp" alt="" data-aos="fade-right"><!-- Scroll transition -->
+        <a data-fancybox="index-product-offerings"
+          href="/assets/images/index/product-offerings/SerifSFO_3Panel_Top Hung_WhiteLami_HalfOpencopy1.webp">
+          <img
+            src="/assets/images/index/product-offerings/SerifSFO_3Panel_Top Hung_WhiteLami_HalfOpencopy1.webp"
+            alt="" data-aos="fade-right">
+        </a>
         <h3 class="font-lato fw-light font-color-white font-size-24 mt-4" data-aos="fade-right">ROOM DIVIDERS</h3>
-        <p class="font-lato fw-light font-color-white font-size-18" data-aos="fade-right">A collection of
-          urban-inspired
-          interior room dividers, surface mounted sliding doors and wall partitions that redefine today’s contemporary
-          spaces.</p>
+        <p class="font-lato fw-light font-color-white font-size-18" data-aos="fade-right">
+          A collection of urban-inspired interior room dividers, surface mounted sliding doors and wall partitions that
+          redefine today’s contemporary spaces.
+        </p>
       </div>
 
       <div class="mt-5 mt-sm-0">
-        <img src="/assets/images/index/product-offerings/ArqadraBrightSilver2RV4.webp" alt="" data-aos="fade-left"><!-- Scroll transition -->
+        <a data-fancybox="index-product-offerings" href="/assets/images/index/product-offerings/ArqadraBrightSilver2RV4.webp">
+          <img src="/assets/images/index/product-offerings/ArqadraBrightSilver2RV4.webp" alt="" data-aos="fade-left">
+        </a>
         <h3 class="font-lato fw-light font-color-white font-size-24 mt-4" data-aos="fade-left">MIRRORS | FRAMES | LED MIRRORS</h3>
-        <p class="font-lato fw-light font-color-white font-size-18 mirror-frames-led-description"  data-aos="fade-left">Elevate your space with
-          our premium
-          framed and LED mirrors —where timeless design meets modern innovation.</p>
+        <p class="font-lato fw-light font-color-white font-size-18 mirror-frames-led-description" data-aos="fade-left">
+          Elevate your space with our premium framed and LED mirrors —where timeless design meets modern innovation.
+        </p>
       </div>
     </div>
 
+    <!-- Product row 3 -->
     <div class="row row-cols-sm-2 mt-4 mt-md-5 mb-5 pb-3 product-offerings">
       <div class="">
-        <img src="/assets/images/index/product-offerings/Screenshot2025-07-201.webp" alt="" data-aos="fade-right"><!-- Scroll transition -->
+        <a data-fancybox="index-product-offerings" href="/assets/images/index/product-offerings/Screenshot2025-07-201.webp">
+          <img src="/assets/images/index/product-offerings/Screenshot2025-07-201.webp" alt="" data-aos="fade-right">
+        </a>
         <h3 class="font-lato fw-light font-color-white font-size-24 mt-4" data-aos="fade-right">ORGANIZERS + SHELVING</h3>
-        <p class="font-lato fw-light font-color-white font-size-18" data-aos="fade-right">Maximize your space with
-          custom closet organizers and shelving.<br>Designed for style, function, and seamless organization.</p>
+        <p class="font-lato fw-light font-color-white font-size-18" data-aos="fade-right">
+          Maximize your space with custom closet organizers and shelving.<br>Designed for style, function, and seamless
+          organization.
+        </p>
       </div>
 
       <div class="mt-5 mt-sm-0">
-        <img src="/assets/images/index/product-offerings/Screenshot2025-07-202.webp" alt="" data-aos="fade-left"><!-- Scroll transition -->
+        <a data-fancybox="index-product-offerings" href="/assets/images/index/product-offerings/Screenshot2025-07-202.webp">
+          <img src="/assets/images/index/product-offerings/Screenshot2025-07-202.webp" alt="" data-aos="fade-left">
+        </a>
         <h3 class="font-lato fw-light font-color-white font-size-24 mt-4" data-aos="fade-left">WINE ROOMS</h3>
-        <p class="font-lato fw-light font-color-white font-size-18" data-aos="fade-left">Elevate your Wine Collection.<br>
+        <p class="font-lato fw-light font-color-white font-size-18" data-aos="fade-left">
+          Elevate your Wine Collection.<br>
           Custom wine rooms that celebrate luxury and modern design.
         </p>
       </div>
     </div>
   </section>
 
+  <!-- Separator divider -->
   <div class="separator"></div>
 
+  <!-- Section 4: Expertise overview + specialty products link -->
   <section class="section-4 p-2 p-md-4 p-xl-5">
+    <!-- Section 4 container -->
     <div class="max-width-1920 pb-5 ">
-      <div class=" mt-3 mt-md-4 mt-xl-5 pb-3 pb-md-4 pb-xl-5 product-offerings ">
-        <h2 class="text-white font-size-100 pt-4 pt-xl-5 letter-spacing-3 line-height-80 font-libre text-center " data-aos="fade-right"><!-- Scroll transition -->
-          SPECIALTY PRODUCTS + SERVICES
-        </h2><!-- Scroll transition -->
-        <p class="font-lato font-size-24 font-color-white fw-light mt-4 " data-aos="fade-right">LMI brings unparalleled expertise and a legacy
-          of
-          trust to every project.</p>
+      <!-- Expertise heading + text -->
+      <div class="mt-3 mt-md-4 mt-xl-5 pb-3 pb-md-4 pb-xl-5 product-offerings ">
+        <h2 class="text-white font-size-100 pt-4 pt-xl-5 letter-spacing-3 line-height-80 font-libre text-center"
+          data-aos="fade-right">
+          EXPERTISE <br> <br>
+        </h2>
+        <p class="font-lato font-size-24 font-color-white fw-light mt-4 " data-aos="fade-right">
+          LMI brings unparalleled expertise and a legacy of trust to every project.
+        </p>
+        <p class="font-lato font-size-24 font-color-white fw-light mt-4 " data-aos="fade-right">
+          Whether you are an architect, builder, or contractor, our over 50 years of experience and expertise add value
+          at each stage of
+          the project - from plan review and alternative value- added solutions to aftermarket service, ensuring timely
+          closings and
+          quality, regardless of the project's size, pace, or complexity.
+        </p>
       </div>
 
-      <div
-        class=" m-auto specialty-products-services-image mt-4 mt-xl-5 d-none d-md-block specialty-img product-offerings">
-        <img src="/assets/images/index/specialty-procuts-services.png" class="w-100 " alt="" data-aos="zoom-in">
+      <!-- Expertise learn more button -->
+      <div class="product-offerings">
+        <a href="/html/expertise.html"
+          class="about-us-button expertise-learn-more px-3 py-md-3 py-1 px-md-4 mt-1 mt-5 d-flex justify-content-between gap-2 align-items-center bg-transparent border-1 border-white text-decoration-none btn-hover"
+          data-aos="fade-up" data-aos-duration="700" data-aos-offset="150" data-aos-once="true">
+          <p class="text-white font-lunasima font-size-16 m-0">LEARN MORE</p>
+          <img src="/assets/images/index/right-arrow.svg" alt="" class="btn-arrow" />
+        </a>
+      </div>
+    </div>
+
+    <!-- Desktop specialty image banner -->
+    <div class="m-auto specialty-products-services-image mt-4 mt-xl-5 d-none d-md-block specialty-img product-offerings">
+      <img src="/assets/images/index/Specialty_Products.png" class="w-100 " alt="" data-aos="zoom-in">
+    </div>
+
+    <!-- Mobile specialty image cards -->
+    <div class="row homes-row specialty-products-services-image gap-4 mt-4 mt-xl-5 d-md-none">
+      <div class="d-flex flex-column align-items-center">
+        <img src="/assets/images/index/LMIPRESENTATION20241.webp" class="w-100" alt="" data-aos="fade-right">
+        <div class="font-lato homes-text font-size-16 letter-spacing-3 font-color-white px-4 py-2 fw-bold">
+          SINGLE FAMILY HOMES
+        </div>
       </div>
 
-      <div class="row homes-row specialty-products-services-image gap-4 mt-4 mt-xl-5 d-md-none">
-        <div class="d-flex flex-column align-items-center">
-          <img src="/assets/images/index/LMIPRESENTATION20241.webp" class="w-100" alt="" data-aos="fade-right"><!-- Scroll transition -->
-          <div class="font-lato homes-text font-size-16 letter-spacing-3 font-color-white px-4 py-2">
-            SINGLE FAMILY HOMES
-          </div>
+      <div class="d-flex flex-column align-items-center">
+        <img src="/assets/images/index/home_banner1.webp" class="w-100" alt="" data-aos="fade-left">
+        <div class="font-lato homes-text font-size-16 letter-spacing-3 font-color-white px-4 py-2 fw-bold">
+          MULTI-FAMILY HOMES
         </div>
-
-        <div class="d-flex flex-column align-items-center">
-          <img src="/assets/images/index/home_banner1.webp" class="w-100" alt="" data-aos="fade-left"><!-- Scroll transition -->
-          <div class="font-lato homes-text font-size-16 letter-spacing-3 font-color-white px-4 py-2">
-            MULTI-FAMILY HOMES
-          </div>
-        </div>
-
-        <div class="d-flex flex-column align-items-center">
-          <img src="/assets/images/index/Screenshot2025-07-20at10.10.48AM1.webp" class="w-100" alt="" data-aos="fade-right"><!-- Scroll transition -->
-          <div class="font-lato homes-text font-size-16 letter-spacing-3 font-color-white px-4 py-2">
-            HIGH RISE | HOSPITALITY
-          </div>
-        </div>
-
       </div>
 
-      <p
-        class="pe-none mx-auto pb-5 font-color-white font-size-24 fw-light font-lato specialty-products-services-image" data-aos="fade-right"><!-- Scroll transition -->
-        At LMI, we go beyond standard fabrication to deliver tailored solutions for unique residential and commercial
-        projects.<br></br>
+      <div class="d-flex flex-column align-items-center">
+        <img src="/assets/images/index/Screenshot2025-07-20at10.10.48AM1.webp" class="w-100" alt="" data-aos="fade-right">
+        <div class="font-lato homes-text font-size-16 letter-spacing-3 font-color-white px-4 py-2 fw-bold">
+          HIGH RISE | HOSPITALITY
+        </div>
+      </div>
+    </div>
 
-        Our expertise spans from custom home builds to large-scale multi-unit developments and high-rise hospitality
-        properties.<br></br>
+    <!-- Optional legacy block (kept commented) -->
+    <!-- <p -->
+    <!-- class="pe-none mx-auto pb-5 font-color-white font-size-24 fw-light font-lato specialty-products-services-image" data-aos="fade-right"><!-- Scroll transition -->
+    <!-- At LMI, we go beyond standard fabrication to deliver tailored solutions for unique residential and commercial
+        projects.<br></br> -->
 
-        Whether you're an architect, builder, or developer, we provide precision-crafted shower enclosures and mirror
+    <!-- Our expertise spans from custom home builds to large-scale multi-unit developments and high-rise hospitality
+        properties.<br></br> -->
+
+    <!-- Whether you're an architect, builder, or developer, we provide precision-crafted shower enclosures and mirror
         systems designed to meet the demands of your project’s scale, style, and complexity.
-      </p>
-      <a href="/html/specialty-products.html"
+      </p> -->
+    <!-- <a href="/html/specialty-products.html"
         class="m-auto mt-5 p-2 p-sm-3 px-4 px-xl-5 rawring d-flex justify-content-between align-items-center bg-transparent border-1 border-white text-decoration-none btn-hover"
         data-aos="fade-up"
         data-aos-duration="700"
@@ -262,9 +327,9 @@
         data-aos-once="true">
         <p class="text-white font-lunasima font-size-16 m-0">LEARN MORE</p>
         <img src="/assets/images/index/right-arrow.svg" alt="" class="btn-arrow" />
-      </a>
+      </a> -->
 
-    </div>
+    <!-- </div> -->
 
 
     <!-- <div class="max-layout specialty  mt-4 mt-xl-5">
@@ -272,20 +337,21 @@
     </div> -->
   </section>
 
-  <div class="separator"></div>
+  <!-- Optional Section 5: Why builders trust LMI (kept commented) -->
+  <!-- <div class="separator"></div>
 
   <section class="section-5 p-2 p-md-4 p-xl-5">
     <div class="max-layout product-offerings mt-3 mt-md-4 mt-xl-5 pb-3 pb-md-4 pb-xl-5">
-      <h2 class="text-white font-size-100 pt-4 pt-xl-5 letter-spacing-5 font-libre pb-4 line-height-80 text-center" data-aos="fade-right"><!-- Scroll transition -->
+      <h2 class="text-white font-size-100 pt-4 pt-xl-5 letter-spacing-5 font-libre pb-4 line-height-80 text-center" data-aos="fade-right">
         WHY BUILDERS TRUST LMI
       </h2>
       <hr class="font-color-white" >
       <div class="row row-cols-sm-2 row-cols-xxl-3 g-5 mt-1 mt-md-2 mb-3 mb-md-4 mb-xl-5 why-trust-lmi ">
         <div class="">
-          <h3 class="text-white font-size-20 font-lato fw-medium" data-aos="fade-right"><!-- Scroll transition -->
+          <h3 class="text-white font-size-20 font-lato fw-medium" data-aos="fade-right">
             OVER 50 YEARS OF INDUSTRY EXCELLENCE
           </h3>
-          <p class="text-white fw-light font-lato font-size-18 mt-4 letter-spacing-negative-25" data-aos="fade-right"><!-- Scroll transition -->
+          <p class="text-white fw-light font-lato font-size-18 mt-4 letter-spacing-negative-25" data-aos="fade-right">
             With over half a century in the construction industry, LMI brings
             unparalleled expertise and a legacy of trust to every project. Our
             decades of experience have allowed us to refine our processes,
@@ -299,10 +365,10 @@
         </div>
 
         <div class="">
-          <h3 class="text-white font-lato font-size-20 fw-medium" data-aos="fade-down"><!-- Scroll transition -->
+          <h3 class="text-white font-lato font-size-20 fw-medium" data-aos="fade-down">
             PROUDLY FABRICATED IN THE USA
           </h3>
-          <p class="text-white fw-light font-lato font-size-18 mt-4 mt-sm-5 letter-spacing-negative-25" data-aos="fade-down"><!-- Scroll transition -->
+          <p class="text-white fw-light font-lato font-size-18 mt-4 mt-sm-5 letter-spacing-negative-25" data-aos="fade-down">
             We take great pride in the fact that all our fabrication is done
             right here in the United States. By fabricating locally, we ensure
             that every project adheres to the highest quality, craftsmanship,
@@ -318,7 +384,7 @@
 
         <div class="">
           <h3 class="text-white font-lato font-size-20 fw-medium" data-aos="fade-left">RAPID DEPLOYMENT</h3>
-          <p class="text-white fw-light font-lato font-size-18 mt-4 mt-sm-5 letter-spacing-negative-25" data-aos="fade-left"><!-- Scroll transition -->
+          <p class="text-white fw-light font-lato font-size-18 mt-4 mt-sm-5 letter-spacing-negative-25" data-aos="fade-left">
             LMI understands the value of time in every project, so we excel in
             delivering rapid deployment without compromising quality. Our
             streamlined processes, efficient project management, and
@@ -333,10 +399,10 @@
         </div>
 
         <div class="">
-          <h3 class="text-white font-lato font-size-20 fw-medium" data-aos="fade-right"><!-- Scroll transition -->
+          <h3 class="text-white font-lato font-size-20 fw-medium" data-aos="fade-right">
             EXCEPTIONAL CUSTOMER SERVICE
           </h3>
-          <p class="text-white fw-light font-lato font-size-18 mt-4 mt-sm-5 letter-spacing-negative-25" data-aos="fade-right"><!-- Scroll transition -->
+          <p class="text-white fw-light font-lato font-size-18 mt-4 mt-sm-5 letter-spacing-negative-25" data-aos="fade-right">
             At LMI, customer satisfaction is at the heart of everything. From
             the initial consultation to project completion, we prioritize
             clear and open communication, ensuring clients are informed and
@@ -354,10 +420,10 @@
         </div>
 
         <div class="">
-          <h3 class="text-white font-lato font-size-20 fw-medium" data-aos="fade-down"><!-- Scroll transition -->
+          <h3 class="text-white font-lato font-size-20 fw-medium" data-aos="fade-down">
             UNCOMPROMISING QUALITY
           </h3>
-          <p class="text-white fw-light font-lato font-size-18 mt-4 mt-sm-5 letter-spacing-negative-25" data-aos="fade-down"><!-- Scroll transition -->
+          <p class="text-white fw-light font-lato font-size-18 mt-4 mt-sm-5 letter-spacing-negative-25" data-aos="fade-down">
             Quality is non-negotiable and embedded in every step of our
             process in LMI. We are committed to delivering nothing short of
             excellence from design to fabrication and installation. We
@@ -377,7 +443,7 @@
 
         <div class="">
           <h3 class="text-white font-lato font-size-20 fw-medium" data-aos="fade-left">INNOVATE SOLUTIONS</h3>
-          <p class="text-white fw-light font-lato font-size-18 mt-4 mt-sm-5 letter-spacing-negative-25" data-aos="fade-left"><!-- Scroll transition -->
+          <p class="text-white fw-light font-lato font-size-18 mt-4 mt-sm-5 letter-spacing-negative-25" data-aos="fade-left">
             LMI is dedicated to staying at the forefront of design and
             technology, offering innovative solutions that elevate today’s
             interiors. We understand that every project presents unique
@@ -395,36 +461,39 @@
           </p>
         </div>
 
-        <!-- <div class="border border-white why-line mt-3 mt-xl-5"></div> -->
+        
       </div>
 
     </div>
 
-  </section>
+  </section> -->
 
-
+  <!-- Separator divider -->
   <div class="separator"></div>
 
+  <!-- Section 5: Full-width image carousel (Bootstrap) -->
   <div id="carouselExample" class="carousel slide carousel-six-section ">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="/assets/images/index/group-banner-1.webp" class="d-block w-100" alt="..." data-aos="fade-down"><!-- Scroll transition -->
+        <img src="/assets/images/index/group-banner-1.webp" class="d-block w-100" alt="..." data-aos="fade-down">
       </div>
       <div class="carousel-item">
-        <img src="/assets/images/index/group-banner-2.webp" class="d-block w-100" alt="..." data-aos="fade-right"><!-- Scroll transition -->
+        <img src="/assets/images/index/group-banner-2.webp" class="d-block w-100" alt="..." data-aos="fade-right">
       </div>
       <div class="carousel-item">
-        <img src="/assets/images/index/group-banner-3.webp" class="d-block w-100" alt="..." data-aos="fade-right"><!-- Scroll transition -->
+        <img src="/assets/images/index/group-banner-3.webp" class="d-block w-100" alt="..." data-aos="fade-right">
       </div>
       <div class="carousel-item">
-        <img src="/assets/images/index/group-banner-4.webp" class="d-block w-100" alt="..." data-aos="fade-right"><!-- Scroll transition -->
+        <img src="/assets/images/index/group-banner-4.webp" class="d-block w-100" alt="..." data-aos="fade-right">
       </div>
       <div class="carousel-item">
-        <img src="/assets/images/index/group-banner-5.webp" class="d-block w-100" alt="..." data-aos="fade-right"><!-- Scroll transition -->
+        <img src="/assets/images/index/group-banner-5.webp" class="d-block w-100" alt="..." data-aos="fade-right">
       </div>
     </div>
+
+    <!-- Carousel controls -->
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon  bg-secondary" aria-hidden="true"></span>
+      <span class="carousel-control-prev-icon bg-secondary" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next " type="button" data-bs-target="#carouselExample" data-bs-slide="next">
@@ -433,14 +502,19 @@
     </button>
   </div>
 
+  <!-- Separator divider -->
   <div class="separator"></div>
 
+  <!-- Section 6: Testimonials carousel -->
   <section class="section-6 p-2 p-md-4 p-xl-5 trade-partner-section">
-    <h2 class="font-size-50 font-lato fw-light text-center font-color-white mt-5 pt-0 pt-xl-5" data-aos="fade-down"><!-- Scroll transition -->
-      What our trade partners say about us.
+    <h2 class="font-size-50 font-lato fw-light text-center font-color-white mt-5 pt-0 pt-xl-5" data-aos="fade-down">
+      What our Builders say about us.
     </h2>
+
+    <!-- Testimonials carousel wrapper -->
     <div class="facility smaller-max-width mt-3 mt-md-4 mt-xl-5 mb-3 mb-md-4 mb-xl-5 m-auto">
-      <div id="carouselExampleDark" class="carousel carousel-dark slide" >
+      <div id="carouselExampleDark" class="carousel carousel-dark slide">
+        <!-- Carousel indicators -->
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
             aria-current="true" aria-label="Slide 1" class=""></button>
@@ -449,40 +523,40 @@
           <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"
             class="asd"></button>
         </div>
+
+        <!-- Carousel items -->
         <div class="carousel-inner px-5">
           <div class="carousel-item active" data-bs-interval="10000">
             <div class="d-flex flex-column align-items-center gap-3 mt-3">
-              <img src="/assets/images/index/Quotess.png.webp" alt=""  data-aos="zoom-in" /><!-- Scroll transition -->
-              <p class="text-center font-size-20 letter-spacing-10"  data-aos="fade-up"><!-- Scroll transition -->
-                LMI has been great to work with. They’re fast and efficient.
-                It’s been a pleasure!
-              </p>
-              <p class="font-size-14 letter-spacing-10" data-aos="fade-right"><!-- Scroll transition -->
+              <img src="/assets/images/index/Quotess.png.webp" alt="" data-aos="zoom-in" />
+              <p class="font-size-14 letter-spacing-10" data-aos="fade-right">
                 Anna- MHB, Inc.
               </p>
             </div>
           </div>
+
           <div class="carousel-item" data-bs-interval="2000">
             <div class="d-flex flex-column align-items-center gap-3">
-              <img src="/assets/images/index/Quotess.png.webp" alt=""  data-aos="fade-right" /><!-- Scroll transition -->
-              <p class="text-center font-size-20 letter-spacing-10 "  data-aos="fade-right"><!-- Scroll transition -->
+              <img src="/assets/images/index/Quotess.png.webp" alt="" data-aos="fade-right" />
+              <p class="text-center font-size-20 letter-spacing-10 " data-aos="fade-right">
                 LMI has been one our most valued Trade Partners for the past
                 10 years. Their customer service is outstanding, and I can
                 always rely on them for help when I need it.
               </p>
-              <p class="font-size-14 letter-spacing-10 " data-aos="fade-right"><!-- Scroll transition -->
+              <p class="font-size-14 letter-spacing-10 " data-aos="fade-right">
                 Doug, BlackPine Communities
               </p>
             </div>
           </div>
+
           <div class="carousel-item">
             <div class="d-flex flex-column align-items-center gap-3">
-              <img src="/assets/images/index/Quotess.png.webp" alt=""  data-aos="fade-right" /><!-- Scroll transition -->
-              <p class="text-center font-size-20 letter-spacing-10 "  data-aos="fade-right"><!-- Scroll transition -->
+              <img src="/assets/images/index/Quotess.png.webp" alt="" data-aos="fade-right" />
+              <p class="text-center font-size-20 letter-spacing-10 " data-aos="fade-right">
                 LMI has been a long-time trade partner with Elliott Homes,
                 their team has been professional and a pleasure to work with.
               </p>
-              <p class="font-size-14 letter-spacing-10 "  data-aos="fade-right"><!-- Scroll transition -->
+              <p class="font-size-14 letter-spacing-10 " data-aos="fade-right">
                 Paula, Elliott Homes
               </p>
             </div>
@@ -492,80 +566,100 @@
     </div>
   </section>
 
+  <!-- Separator divider -->
   <div class="separator"></div>
 
-  <section class="d-flex flex-column align-items-center contact-form-section" >
+  <!-- Contact section: heading + EmailJS form -->
+  <section class="d-flex flex-column align-items-center contact-form-section">
+    <!-- Contact heading -->
     <div class="d-flex flex-column align-items-center">
-      <h3 class="font-color-white font-lato fw-light font-size-24 text-center lh-base" data-aos="fade-down"><!-- Scroll transition -->
+      <h3 class="font-color-white font-lato fw-light font-size-24 text-center lh-base" data-aos="fade-down">
         Let us know how we can help.<br>
         Send us a note below, and we’ll be in touch shortly!
       </h3>
     </div>
 
-        <div
-            class="lmi-contact-container w-100 smallest-max-width lmi-contact"
-            id="lmi-contact-container"
-            data-aos="fade-up"
-            data-aos-duration="700"
-            data-aos-offset="150"
-            data-aos-once="true"
-          >
+    <!-- Contact form container -->
+    <div class="lmi-contact-container w-100 smallest-max-width lmi-contact" id="lmi-contact-container" data-aos="fade-up"
+      data-aos-duration="700" data-aos-offset="150" data-aos-once="true">
+
+      <!-- Form submit calls sendEmail(event) in script.js -->
       <form onsubmit="sendEmail(event)" class="w-100 d-flex flex-column gap-5 p-3 p-md-5 align bg-light">
-
+        <!-- Name input -->
         <div class="w-100">
-          <input class="w-100 font-size-24 font-lato p-2 bg-light font-color-black"
-            type="text" id="first-name" name="first-name" placeholder="First Name*" required>
+          <input class="w-100 font-size-24 font-lato p-2 bg-light font-color-black" type="text" id="user-name"
+            name="user-name" placeholder="Name*" required>
         </div>
 
+        <!-- Company input -->
         <div>
-          <input class="w-100 font-size-24 font-lato p-2 bg-light font-color-black"
-            type="text" id="last-name" name="last-name" placeholder="Last Name*" required>
+          <input class="w-100 font-size-24 font-lato p-2 bg-light font-color-black" type="text" id="user-company"
+            name="user-company" placeholder="Company*" required>
         </div>
 
+        <!-- Position input -->
         <div>
-          <input class="w-100 font-size-24 font-lato p-2 bg-light font-color-black"
-            type="email" id="user-email" name="user-email" placeholder="Email*" required>
+          <input class="w-100 font-size-24 font-lato p-2 bg-light font-color-black" type="text" id="user-position"
+            name="user-position" placeholder="Position*" required>
         </div>
 
+        <!-- Email input -->
         <div>
-          <input class="w-100 font-size-24 font-lato p-2 bg-light font-color-black"
-            type="tel" id="user-phone" name="user-phone" placeholder="Phone*" required>
+          <input class="w-100 font-size-24 font-lato p-2 bg-light font-color-black" type="email" id="user-email"
+            name="user-email" placeholder="Email*" autocomplete="email" required>
         </div>
 
+        <!-- Phone input (numbers only) -->
         <div>
-          <textarea class="w-100 font-size-24 font-lato p-2 bg-light font-color-black"
-            id="user-message" name="user-message" rows="4" placeholder="Message*" required></textarea>
+          <input class="w-100 font-size-24 font-lato p-2 bg-light font-color-black" type="tel" id="user-phone"
+            name="user-phone" placeholder="Phone*" inputmode="numeric" pattern="[0-9]+"
+            title="Phone number must contain numbers only." required>
         </div>
 
-       <button type="submit" class="font-lato font-size-24 font-color-white p-2 m-auto btn-hover">
-        SUBMIT
-      </button>
+        <!-- Message textarea -->
+        <div>
+          <textarea class="w-100 font-size-24 font-lato p-2 bg-light font-color-black" id="user-message"
+            name="user-message" rows="4" placeholder="Message*" required></textarea>
+        </div>
 
+        <!-- Submit button -->
+        <button type="submit" class="font-lato font-size-24 font-color-white p-2 m-auto btn-hover">
+          SUBMIT
+        </button>
       </form>
-
     </div>
   </section>
 
+  <!-- Separator divider -->
   <div class="separator"></div>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+
+  <!-- Popper (Bootstrap dependency for tooltips/dropdowns) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>
+
+  <!-- Bootstrap JS (carousel, dropdowns, etc.) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
+
+  <!-- AOS library (scroll animations) -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- AOS init (activate animations) -->
   <script>
     AOS.init();
   </script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <!-- Local JS -->
-  <script type="text/javascript" src="../js/script.js"></script>
+  <!-- Fancybox library (image lightbox) -->
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
+  <!-- Local script: navbar/footer injection + sendEmail() + parallax logic -->
+  <script type="text/javascript" src="/js/script.js"></script>
+
+  <!-- Footer mount point (injected by script.js) -->
   <div id="site-footer"></div>
 
 </body>
 
 </html>
-
-

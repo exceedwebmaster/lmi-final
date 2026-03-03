@@ -1,9 +1,26 @@
 /* Index Page */
 /* Section 1 */
 .initial-landing {
+  position: relative;
+  overflow: hidden;
+  background: none;
+}
+
+.initial-landing::before {
+  content: "";
+  position: absolute;
+  inset: -10% 0;
   background-image: url("/assets/images/index/home-landing-image.webp");
   background-position: center;
   background-size: cover;
+  transform: translate3d(0, var(--landing-parallax, 0px), 0);
+  will-change: transform;
+  z-index: 0;
+}
+
+.initial-landing > * {
+  position: relative;
+  z-index: 1;
 }
 
 .initial-landing > div:first-of-type > h3 {
@@ -77,6 +94,10 @@
 .about-us-button{
   border: 1px solid white; 
   white-space: nowrap;
+}
+
+.expertise-learn-more {
+  width: min(100%, 320px);
 }
 
 .integrity {
@@ -163,10 +184,6 @@
   max-width: 50%;
 }
 
-.section-4 .homes-row .homes-text{
-  background-color: #939393;
-}
-
 .section-4 > div > p{
   max-width: 755px; 
   margin-top: 5em !important;
@@ -175,6 +192,21 @@
 .section-4 > div > a{
   border: 1px solid white;
   max-width: 300px;
+}
+
+.section-4 .homes-row .homes-text{
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(0,0,0,0.55);
+  padding: 10px 18px;
+  border-radius: 4px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.85);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.35);
 }
 
 /* Section 5 */
@@ -239,6 +271,16 @@
 
 .section-6 #carouselExampleDark{
   min-height: 350px;
+}
+
+.section-6 #carouselExampleDark .carousel-indicators [data-bs-target] {
+  background-color: #ffffff !important;
+  opacity: 0.85;
+}
+
+.section-6 #carouselExampleDark .carousel-indicators .active {
+  background-color: #ffffff !important;
+  opacity: 1;
 }
 
 .contact-form-section {
@@ -351,3 +393,5 @@
   66%  {background-position:-30px 0, 10px 40px, 20px 20px}
   100% {background-position:-30px 0, 10px 40px, 50px 20px}
 }
+
+

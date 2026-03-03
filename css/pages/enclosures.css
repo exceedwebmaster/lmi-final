@@ -1,11 +1,35 @@
 /* Enclosures Page */
 /* Section 1 */
+/* Enclosures landing parallax container */
 .initial-landing-enclosures {
-  background-image: url("/assets/images/enclosures/shower-enclosure-landing-bg.webp");
-  background-position: center;
-  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  background: none;
 }
 
+/* Enclosures background layer */
+.initial-landing-enclosures::before {
+  content: "";
+  position: absolute;
+  inset: -10% 0;
+  background-image: url("/assets/images/enclosures/shower-enclosure-landing-page.png");
+  background-position: center;
+  background-size: cover;
+  transform: translate3d(0, var(--landing-parallax, 0px), 0);
+  will-change: transform;
+  z-index: 0;
+}
+
+/* Keep content above the bg */
+.initial-landing-enclosures > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional: same h3 shadow style (only if your enclosures section has this structure) */
+.initial-landing-enclosures > div:first-of-type > h3 {
+  text-shadow: 0 0 5px white;
+}
 
 .section-3-enclosures p {
   max-width: 750px !important;

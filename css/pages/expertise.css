@@ -1,3 +1,18 @@
+/* ======= FIXED NAVBAR OFFSET ======= */
+/* Prevents page content from being hidden behind fixed navbar */
+body {
+  /* padding-top: 80px - Adds top spacing to accommodate fixed navbar */
+  /* keeps content below navbar and navbar stays fixed when scrolling */
+  padding-top: 80px;
+}
+
+@media (max-width: 768px) {
+  body {
+    /* Reduced padding on mobile devices */
+    padding-top: 110px;
+  }
+}
+
 /* Specialty Products */
 /* Section 1  */
 /* .initial-landing-specialty-products {
@@ -79,7 +94,9 @@
 }
 
 
-
+.project-highlights-title{
+  padding-bottom: 50x; /* increase to push the line down */
+}
 
 /* MULTI FAMILY HOMES */
 
@@ -193,5 +210,37 @@
 }
 
 
+.narrative-block{
+  border-top: 1px solid #d6d6d6;
+  border-bottom: 1px solid #d6d6d6;  /* add this */
+  padding: 48px 0;
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
+.narrative-title{
+  font-family: "Libre Baskerville", serif;
+  font-size: 44px;    /* adjust */
+  font-weight: 400;
+  margin: 0 0 12px 0;
+  
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+.narrative-subtitle{
+  font-family: "Libre Baskerville", serif;
+  font-size: 30px;
+  font-weight: 400;
+  margin: 0 0 26px 0;
+}
+
+.narrative-text{
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555;
+  margin: 0;
+  max-width: 980px;
+}
 

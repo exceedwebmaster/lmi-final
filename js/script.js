@@ -1,6 +1,8 @@
 // ================= Accordion =================
+// Accordion hover event bindings
 const accordionItems = document.querySelectorAll('.accordionItem');
 accordionItems.forEach(item => {
+  // Accordion expand on hover
   item.addEventListener('mouseenter', function () {
     const accordionDescription = this.querySelector('.accordionDescription');
     const plusIcon = this.querySelector('.plusIcon');
@@ -13,6 +15,7 @@ accordionItems.forEach(item => {
     if (minusIcon) minusIcon.style.display = 'block';
   });
 
+  // Accordion collapse on leave
   item.addEventListener('mouseleave', function () {
     const accordionDescription = this.querySelector('.accordionDescription');
     const plusIcon = this.querySelector('.plusIcon');
@@ -26,7 +29,26 @@ accordionItems.forEach(item => {
   });
 });
 
+// ================= HEADER COLOR CHANGE ON SCROLL =================
+// Navbar background color on scroll
+/* Dynamically changes navbar background color based on scroll position */
+/* Helps navbar blend with different section backgrounds */
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('.navbar');
+  
+  if (!navbar) return;
+  
+  /* If user scrolled more than 100px down, change navbar background */
+  if (window.scrollY > 100) {
+    navbar.style.background = '#F2F4F5';
+  } else {
+    /* Reset to transparent when near top of page */
+    navbar.style.background = 'transparent';
+  }
+});
+
 // ================= Shared Navbar/Footer Components =================
+// Get current page filename
 function getCurrentPageFile() {
   const rawPath = (window.location.pathname || '').toLowerCase();
   const normalizedPath = rawPath.replace(/\\/g, '/');
@@ -40,6 +62,7 @@ function getCurrentPageFile() {
   return lastSegment;
 }
 
+// Fetch partial with path fallback
 async function fetchPartialWithFallback(filename) {
   const candidates = [
     `components/${filename}`,
@@ -63,6 +86,7 @@ async function fetchPartialWithFallback(filename) {
   throw lastError || new Error(`Unable to load partial: ${filename}`);
 }
 
+// Update footer year values
 function updateFooterYears() {
   const year = new Date().getFullYear();
   const yearEl = document.getElementById('year');
@@ -72,6 +96,7 @@ function updateFooterYears() {
   if (yearMobileEl) yearMobileEl.textContent = year;
 }
 
+// Disable AOS on injected footer
 function makeInjectedFooterAlwaysVisible(footerRoot) {
   if (!footerRoot) return;
 
@@ -89,6 +114,7 @@ function makeInjectedFooterAlwaysVisible(footerRoot) {
   });
 }
 
+// Apply standard navbar classes
 function applyStandardNavbarVariant(nav, pageFile) {
   if (!nav) return;
 
@@ -98,7 +124,7 @@ function applyStandardNavbarVariant(nav, pageFile) {
   const logoImg = nav.querySelector('.navbar-brand img');
 
   const defaultVariant = {
-    navClass: 'navbar bg-white w-100 top-0 navbar-expand-xl p-3 ',
+    navClass: 'navbar position-fixed bg-white w-100 top-0 navbar-expand-xl p-3 ',
     containerClass: 'container-fluid d-flex p-0 ',
     listClass: 'navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-end',
     navStyle: '',
@@ -106,7 +132,7 @@ function applyStandardNavbarVariant(nav, pageFile) {
 
   const variantByPage = {
     'index.html': {
-      navClass: 'navbar position-absolute w-100 top-0 navbar-expand-xl p-3 p-xl-5 ',
+      navClass: 'navbar position-fixed w-100 top-0 navbar-expand-xl p-3 p-xl-3 ',
       containerClass: 'container-fluid d-flex  p-0 ',
       listClass: 'navbar-nav navbar-nav-home me-auto mb-2 mb-lg-0 p-2 w-100 d-flex justify-content-end',
       productsDropdownClass: 'dropdown border-none products-dropdown',
@@ -114,7 +140,7 @@ function applyStandardNavbarVariant(nav, pageFile) {
       logoAos: 'fade-right',
     },
     'about.html': {
-      navClass: 'navbar bg-white w-100 top-0 navbar-expand-xl p-3',
+      navClass: 'navbar position-fixed bg-white w-100 top-0 navbar-expand-xl p-3',
       containerClass: 'container-fluid d-flex p-0 ',
       listClass: 'navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-end',
       navId: 'top-page',
@@ -122,14 +148,14 @@ function applyStandardNavbarVariant(nav, pageFile) {
       specialtyDropdownClass: 'dropdown border-none specialty-dropdown ',
     },
     'contact.html': {
-      navClass: 'navbar  bg-white w-100 top-0 navbar-expand-xl p-3 contact-nav-border',
+      navClass: 'navbar position-fixed bg-white w-100 top-0 navbar-expand-xl p-3 contact-nav-border',
       containerClass: 'container-fluid d-flex p-0 ',
       listClass: 'navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-end ',
     },
-    'specialty-products.html': {
-      navClass: 'navbar position-absolute bg-white w-100 top-0 navbar-expand-xl p-3 ',
+    'expertise.html': {
+      navClass: 'navbar position-fixed b  g-white w-100 top-0 navbar-expand-xl p-3 ',
     },
-    'privacy-policy.html': {
+    'privacy-policy.html': {  
       navClass: 'navbar  bg-white w-100 top-0 navbar-expand-xl p-3 ',
       navStyle: 'background: linear-gradient(to bottom, #404040, #A6A6A6);',
     },
@@ -179,6 +205,7 @@ function applyStandardNavbarVariant(nav, pageFile) {
   }
 }
 
+// Apply resources navbar modifications
 function applyResourcesNavbarVariant(nav) {
   if (!nav) return;
 
@@ -238,16 +265,18 @@ function applyResourcesNavbarVariant(nav) {
       .join('');
   }
 
+  // Replace specialty dropdown with link
   if (specialtyItem) {
     const specialtyPlainItem = document.createElement('li');
     specialtyPlainItem.className = 'nav-item ';
     specialtyPlainItem.innerHTML = `
-      <a class="nav-link fw-medium font-lato font-size-18 text-xl-center" href="/html/specialty-products.html">SPECIALTY PRODUCTS
-              + SERVICES</a>
+      <a class="nav-link fw-medium font-lato font-size-18 text-xl-center" href="/html/expertise.html">EXPERTISE
+             </a>
     `;
     navList.replaceChild(specialtyPlainItem, specialtyItem);
   }
 
+  // Insert resources nav item
   const resourcesItem = document.createElement('li');
   resourcesItem.className = 'nav-item';
   resourcesItem.innerHTML = '<a class="nav-link fw-medium font-lato font-size-18" href="/html/resources.html">RESOURCES</a>';
@@ -263,6 +292,7 @@ function applyResourcesNavbarVariant(nav) {
   }
 }
 
+// Route navbar variant selection
 function applyNavbarVariant(nav) {
   if (!nav) return;
 
@@ -275,6 +305,7 @@ function applyNavbarVariant(nav) {
   applyStandardNavbarVariant(nav, pageFile);
 }
 
+// Inject shared navbar and footer
 async function injectSharedComponents() {
   const navbarTarget = document.getElementById('site-navbar');
   const footerTarget = document.getElementById('site-footer');
@@ -313,16 +344,45 @@ async function injectSharedComponents() {
   }
 }
 
+// DOM ready initializers
 document.addEventListener('DOMContentLoaded', () => {
   injectSharedComponents();
+  initLandingParallax();
 });
+
+// Landing parallax scroll effect
+function initLandingParallax() {
+  const landing = document.getElementById('landing');
+  if (!landing) return;
+
+  let ticking = false;
+
+  const update = () => {
+    const rect = landing.getBoundingClientRect();
+    const offset = -rect.top * 0.35;
+    landing.style.setProperty('--landing-parallax', `${offset}px`);
+    ticking = false;
+  };
+
+  const requestTick = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(update);
+  };
+
+  window.addEventListener('scroll', requestTick, { passive: true });
+  window.addEventListener('resize', requestTick);
+  update();
+}
 
 
 // ================= Update Year =================
+// Update footer years on load
 updateFooterYears();
 
 
 // ================= Product Footer Button =================
+// Toggle products footer accordion
 const productFooterBtn = document.querySelector('.product-footer-button');
 if (productFooterBtn) {
   productFooterBtn.addEventListener('click', function (event) {
@@ -338,6 +398,7 @@ if (productFooterBtn) {
 }
 
 // ================= Fancybox =================
+// Fancybox image zoom toggle setup
 if (typeof Fancybox !== "undefined") {
   Fancybox.bind("[data-fancybox]", {
     Images: {
@@ -369,14 +430,49 @@ if (typeof Fancybox !== "undefined") {
 }
 
 // ================= Email =================
+// Email form submit handler
 function sendEmail(e) {
   e.preventDefault();
+  const nameInput = document.querySelector("#user-name");
+  const companyInput = document.querySelector("#user-company");
+  const positionInput = document.querySelector("#user-position");
+  const emailInput = document.querySelector("#user-email");
+  const phoneInput = document.querySelector("#user-phone");
+  const nameValue = nameInput?.value.trim() || "";
+  const companyValue = companyInput?.value.trim() || "";
+  const positionValue = positionInput?.value.trim() || "";
+  const emailValue = emailInput?.value.trim() || "";
+  const phoneValue = phoneInput?.value.trim() || "";
+
+  if (emailInput) emailInput.setCustomValidity("");
+  if (phoneInput) phoneInput.setCustomValidity("");
+
+  // Ensure email is properly formatted.
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (emailInput && !emailPattern.test(emailValue)) {
+    emailInput.setCustomValidity("Please enter a valid email address.");
+    emailInput.reportValidity();
+    return;
+  }
+
+  // Ensure phone contains digits only.
+  const phonePattern = /^[0-9]+$/;
+  if (phoneInput && !phonePattern.test(phoneValue)) {
+    phoneInput.setCustomValidity("Phone number must contain numbers only.");
+    phoneInput.reportValidity();
+    return;
+  }
+
   const templateParams = {
-    firstname: document.querySelector("#first-name")?.value.trim() || "",
-    lastname: document.querySelector("#last-name")?.value.trim() || "",
-    useremail: document.querySelector("#user-email")?.value.trim() || "",
-    userphone: document.querySelector("#user-phone")?.value.trim() || "",
+    name: nameValue,
+    company: companyValue,
+    position: positionValue,
+    useremail: emailValue,
+    userphone: phoneValue,
     usermessage: document.querySelector("#user-message")?.value.trim() || "",
+    // Backward-compatible keys for existing EmailJS templates
+    firstname: nameValue,
+    lastname: companyValue,
   };
 
   if (typeof emailjs !== "undefined") {
@@ -388,6 +484,7 @@ function sendEmail(e) {
 }
 
   // Measure nav and set global offset so normal hash jumps also respect it
+  // Set scroll padding from navbar height
   function applyScrollPadding() {
     const nav = document.querySelector('nav');
     const h = nav ? nav.offsetHeight : 0;
@@ -395,6 +492,7 @@ function sendEmail(e) {
   }
 
   // Scroll to the element AFTER layout is stable
+  // Smooth scroll to hash with offset
   function scrollToHashWithOffset() {
     const hash = window.location.hash;
     if (!hash) return;
@@ -414,6 +512,7 @@ function sendEmail(e) {
   }
 
   // Handle normal load, BFCache restore, and resizes
+  // Hash jump handling on load/restore
   window.addEventListener('load', () => {
     applyScrollPadding();
     scrollToHashWithOffset();
@@ -425,6 +524,3 @@ function sendEmail(e) {
       scrollToHashWithOffset();
     }
   });
-
-
-  
