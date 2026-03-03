@@ -15,6 +15,11 @@
   border-radius: 10px; /* remove !important unless needed */
 }
 
+.section-3-contacts .font-size-24 {
+  font-size: 19px  !important ;   /* change size here */
+  font-weight: 400;  /* change weight here */
+}
+
 .section-4-contacts hr {
   max-width: 400px;
 }
@@ -28,6 +33,7 @@
 
 .section-4-contacts .contact-btn p{
   transition: color .35s ease-in-out;
+  font-size: 13px;
 }
 
 .section-4-contacts .contact-btn img{
@@ -48,6 +54,16 @@
   transform: translateX(3px);
 }
 
+
+/* Section 4 - Contact Columns */
+.section-4-contacts .col {
+
+  margin-bottom: 80px !important; /* vertical spacing */
+  padding-left: 50px !important; /* horizontal spacing */
+  padding-right: 50px !important; /* horizontal spacing */
+
+
+}
 
 @media (hover: none) {
   .section-4-contacts .contact-btn:hover{

@@ -225,7 +225,7 @@
 }
 
 .max-width-1920 {
-  max-width: 1920px;
+  max-width: 1920px ;
   margin-inline: auto;
 }
 
@@ -431,7 +431,7 @@ nav div {
 
   /* Index Page */
   .smaller-max-width {
-    width: 70%;
+    width: 75%;
   }
 
   .smallest-max-width {
