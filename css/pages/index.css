@@ -94,10 +94,16 @@
 .about-us-button{
   border: 1px solid white; 
   white-space: nowrap;
+  transition: transform .25s ease-in-out, box-shadow .25s ease-in-out;
+}
+
+.about-us-button:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
 }
 
 .expertise-learn-more {
-  width: min(100%, 320px);
+  width: min(100%, 200px);
 }
 
 .integrity {
@@ -168,7 +174,7 @@
 
 /* Section 4 */
 .section-4 {
-  background-color: var(--primary-color);
+  background-color: #4a4a4a;
 }
 
 .specialty-img {
@@ -221,6 +227,25 @@
 #carouselExample button span:first-child{
   padding: 13% !important;
 }
+
+/* CAROUSEL IMAGE PADDING - adjust padding value to make images smaller */
+.carousel-six-section .carousel-item {
+  padding: 30px;
+  background-color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .carousel-six-section .carousel-item {
+    padding: 25px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .carousel-six-section .carousel-item {
+    padding: 80px;
+  }
+}
+/* END CAROUSEL IMAGE PADDING */
 
 .lmi-contact input::placeholder,
 .lmi-contact textarea::placeholder {
