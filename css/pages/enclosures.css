@@ -12,7 +12,7 @@
   content: "";
   position: absolute;
   inset: -10% 0;
-  background-image: url("/assets/images/enclosures/shower-enclosure-landing-page.png");
+  background-image: url("/assets/images/enclosures/Shower\ Enclosure_Landing\ Page\ 2.png");
   background-position: center;
   background-size: cover;
   transform: translate3d(0, var(--landing-parallax, 0px), 0);
