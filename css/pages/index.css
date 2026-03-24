@@ -10,7 +10,7 @@
   content: "";
   position: absolute;
   inset: -10% 0;
-  background-image: url("/assets/images/index/home-landing-image.webp");
+  background-image: url("/assets/images/index/Shower\ Enclosure_Landing\ Page\ 1.png");
   background-position: center;
   background-size: cover;
   transform: translate3d(0, var(--landing-parallax, 0px), 0);
