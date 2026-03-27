@@ -278,6 +278,27 @@ nav > div {
   }
 }
 
+/* Homepage navbar styling: white text by default */
+.index-page .navbar .nav-link,
+.index-page .navbar .navbar-brand,
+.index-page .navbar .dropdown-toggle {
+  color: #ffffff !important;
+}
+
+.index-page .navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 24'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M5 7h20M5 12h20M5 17h20'/%3e%3c/svg%3e") !important;
+}
+
+/* Change navbar text to black when scrolled on homepage */
+.index-page .navbar.scrolled .nav-link,
+.index-page .navbar.scrolled .dropdown-toggle {
+  color: #131313 !important;
+}
+
+.index-page .navbar.scrolled .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 24'%3e%3cpath stroke='%23131313' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M5 7h20M5 12h20M5 17h20'/%3e%3c/svg%3e") !important;
+}
+
 .dropdown-menu li a:hover {
   background-color: #4A5509 !important;
   color: white !important;

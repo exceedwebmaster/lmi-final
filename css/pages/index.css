@@ -24,7 +24,8 @@
 }
 
 .initial-landing > div:first-of-type > h3 {
-  text-shadow: 0 0 5px white
+color: #e6e5e5;
+font-weight: 380!important;
 }
 
 .index-hero-1 {
@@ -394,6 +395,7 @@
   background: #fff;          /* change if you want */
   z-index: 9999;
 }
+
 
 /* Hide animation (fade out) */
 .loader-overlay.is-hidden{

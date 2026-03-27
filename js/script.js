@@ -41,9 +41,11 @@ window.addEventListener('scroll', function() {
   /* If user scrolled more than 100px down, change navbar background */
   if (window.scrollY > 100) {
     navbar.style.background = '#F2F4F5';
+    navbar.classList.add('scrolled');
   } else {
     /* Reset to transparent when near top of page */
     navbar.style.background = 'transparent';
+    navbar.classList.remove('scrolled');
   }
 });
 
