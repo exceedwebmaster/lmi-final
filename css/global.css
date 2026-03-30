@@ -12,6 +12,25 @@
   font-family: "Lunasima";
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
 
 
 :root {
@@ -219,13 +238,13 @@
 }
 
 .max-layout {
-  width: 88%;
-  max-width: 1600px;
+  width: min(88%, 1600px);
   margin: 0 auto;
 }
 
 .max-width-1920 {
-  max-width: 1920px ;
+  width: min(100%, 1920px);
+  max-width: 1920px;
   margin-inline: auto;
 }
 
@@ -235,29 +254,50 @@
   position: fixed;
   /* transition: Smooth color change when navbar background updates on scroll */
   transition: background 0.3s ease;
+  padding: clamp(8px, 1.1vw, 14px) clamp(12px, 2vw, 24px) !important;
 }
 
-nav > div {
+.navbar>.container-fluid {
+  width: min(95%, 1584px) !important;
   max-width: 1584px;
+  margin-inline: auto;
+  align-items: center;
 }
 
-@media (max-width: 767px) {
-  .navbar-brand {
-    max-width: 30%;
-  }
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  width: clamp(96px, 10vw, 170px);
+  min-width: 96px;
+  margin-right: clamp(8px, 1.2vw, 20px);
+}
+
+.navbar-brand img {
+  width: auto;
+  max-width: 100%;
+  max-height: clamp(48px, 5vw, 84px);
+  height: auto;
+  display: block;
 }
 
 .navbar-collapse {
-  padding-top: 1%;
+  padding-top: 0;
   border-radius: 10px;
 }
 
 .navbar-collapse ul {
-  gap: 1%;
+  gap: clamp(2px, 0.6vw, 12px);
+}
+
+.navbar .nav-link,
+.navbar .dropdown .btn {
+  line-height: 1.2;
+  white-space: nowrap;
+  padding: 0.5rem 0.75rem;
 }
 
 .navbar .dropdown .btn {
-  padding: 8px 0px;
+  padding: 0.5rem 0.75rem;
 }
 
 .navbar-toggler:focus,
@@ -268,13 +308,82 @@ nav > div {
 
 @media (min-width: 1200px) {
   .navbar .dropdown .btn {
-    padding: 8px;
+    padding: 0.5rem 0.75rem;
   }
 }
 
-@media(max-width: 1199px) {
+@media (max-width: 1399px) {
+  .navbar .nav-link,
+  .navbar .dropdown .btn {
+    font-size: clamp(13px, 1vw, 15px) !important;
+  }
+}
+
+@media (max-width: 1199px) {
   .navbar-nav-home {
     background-color: rgb(242, 244, 245);
+  }
+
+  .navbar > .container-fluid {
+    width: min(95%, 1024px) !important;
+  }
+
+  .navbar-collapse {
+    margin-top: 0.75rem;
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: rgb(242, 244, 245);
+  }
+
+  .navbar .navbar-nav {
+    gap: 0.35rem !important;
+  }
+
+  .navbar .nav-link,
+  .navbar .dropdown .btn {
+    width: 100%;
+    text-align: left;
+    justify-content: space-between;
+    padding: 0.65rem 0.35rem;
+  }
+
+  .navbar .dropdown {
+    width: 100%;
+  }
+
+  .navbar .dropdown-menu {
+    position: static !important;
+    float: none;
+    width: 100%;
+    margin-top: 0.35rem;
+    border: 1px solid #d5d7db;
+    box-shadow: none;
+  }
+
+  .navbar .dropdown-menu .dropdown-item {
+    white-space: normal;
+  }
+
+  /* Homepage mobile menu: keep strong contrast on light panel */
+  .index-page .navbar .navbar-collapse .nav-link,
+  .index-page .navbar .navbar-collapse .dropdown-toggle,
+  .index-page .navbar .navbar-collapse .btn {
+    color: #131313 !important;
+  }
+
+  .index-page .navbar .navbar-collapse .dropdown-menu {
+    background-color: #ffffff;
+  }
+
+  .index-page .navbar .navbar-collapse .dropdown-item {
+    color: #131313 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-brand {
+    width: clamp(86px, 30vw, 130px);
+    min-width: 86px;
   }
 }
 
@@ -310,41 +419,40 @@ nav > div {
 
 .footer-section {
   background-color: #939393;
-  padding: 6%;
+  padding: clamp(28px, 5vw, 96px) clamp(16px, 4vw, 72px);
+  overflow: clip;
+}
+
+.footer-section .row {
+  row-gap: clamp(20px, 2.5vw, 36px);
 }
 
 .footer-section .logo-container {
-  max-width: 280px;
+  max-width: min(100%, 280px);
+}
+
+.footer-section .logo-container img {
+  width: min(100%, 220px);
 }
 
 @media(max-width: 1000px) {
-  .footer-section img {
+  .footer-section .logo-container img {
     max-width: 170px !important;
   }
 }
 
 .footer-seo {
-  margin-left: 3.5%;
+  margin-left: 0;
 }
 
 .footer-second-row {
-  margin-top: 8%;
+  margin-top: clamp(24px, 4vw, 72px);
 }
 
-.arrow-up-icon .arrow-up-image{
-  max-width: 50px !important;
-}
 @media(min-width: 576px) {
   .footer-second-row {
     border-top: 1px solid #4A5509;
   }
-}
-
-@media(min-width: 1800px) {
-  .footer-terms-of-service-container {
-    margin-left: -25%;
-  }
-
 }
 
 .separator {
@@ -384,7 +492,7 @@ nav > div {
 
 .text-separator {
   background-color: #4A5509;
-  padding-left: 10% !important;
+  padding-inline: clamp(12px, 6vw, 10%) !important;
 }
 
 .text-separator-center {
@@ -395,43 +503,24 @@ nav > div {
 
 @media(max-width: 1199px) {
   .text-separator {
-    padding-left: 0px !important;
+    padding-inline: clamp(12px, 4vw, 24px) !important;
   }
 }
 
 .arrow-up-icon {
-  position: absolute;
-   bottom: 10%; 
-   z-index: 9999; 
-   right: 8%; 
-   background-color: #939393;
+  position: fixed;
+  bottom: clamp(14px, 4vh, 40px);
+  right: clamp(12px, 3vw, 42px);
+  z-index: 1050;
+  background-color: transparent;
 }
 
-@media(max-width: 767px){
-  .arrow-up-icon{
-    bottom: 15%;
-  }
+.arrow-up-icon .arrow-up-image {
+  max-width: clamp(38px, 4vw, 50px) !important;
 }
 
-@media(max-width: 575px){
-  .arrow-up-icon{
-    bottom: 6%;
-  }
-}
-
-nav div button{
+.navbar button {
   border: none !important;
-}
-
-
-nav div {
-  width: 95% !important;
-}
-
-@media (min-width: 1657px) {
-  nav div {
-    width: 100% !important;
-  }
 }
 
 @media (max-width: 1500px) {
@@ -440,34 +529,44 @@ nav div {
   }
 }
 
-@media(max-width:1199px) {
-  nav {
-    position: absolute !important;
-  }
-}
-
-
-
 @media (min-width: 1200px) {
 
   /* Index Page */
   .smaller-max-width {
-    width: 75%;
+    width: min(75%, 1440px);
   }
 
   .smallest-max-width {
+    width: min(100%, 1000px);
     max-width: 1000px;
   }
 
 }
 
+.smaller-max-width {
+  width: min(92%, 1440px);
+  margin-inline: auto;
+}
+
+.smallest-max-width {
+  width: min(100%, 1000px);
+  margin-inline: auto;
+}
+
+@media (max-width: 767px) {
+  .smaller-max-width {
+    width: min(94%, 1440px);
+  }
+}
+
 
 .section-2-enclosures h1, .section-2-enclosures h2 {
-  max-width: 55%;
+  max-width: min(100%, 980px);
+  margin-inline: auto;
 }
 /* Section 2 */
 .accordionButton img,
-svg {
+.accordionButton svg {
   max-width: 100%;
   display: block;
 }
@@ -483,6 +582,12 @@ svg {
   justify-content: space-between;
   gap: 1rem;
   border: 0;
+}
+
+@media (max-width: 575px) {
+  .accordionItem button {
+    align-items: flex-start;
+  }
 }
 
 

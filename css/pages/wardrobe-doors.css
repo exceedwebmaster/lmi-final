@@ -1,68 +1,139 @@
 /* Wardrobe Doors Page */
-/* Section 1 */
 .initial-landing-wardrobe-doors {
   background-image: url("/assets/images/wardrobe-doors/wardrobe-landing-img.webp");
   background-position: center;
   background-size: cover;
 }
 
-/* Section 3 */
 .section-3-wardrobe-doors span,
 .section-3-room-dividers span {
   font-weight: bold;
 }
 
-.section-2-wardrobe h1, .section-2-wardrobe h2  {
-  max-width: 47%;
+.section-2-wardrobe h1,
+.section-2-wardrobe h2 {
+  max-width: min(100%, 25ch);
+  margin-inline: auto;
 }
 
 .section-3-wardrobe p {
-  max-width: 750px !important;
+  max-width: min(100%, 750px) !important;
 }
 
-.section-4-wardrobe{
+.section-4-wardrobe {
   background-color: #939393;
 }
 
-.section-4-wardrobe .steel-bipass-title{
-  border-bottom: 1px solid #CCCCCC; 
-  max-width: 850px;
+.section-4-wardrobe .steel-bipass-title {
+  border-bottom: 1px solid #cccccc;
+  max-width: min(100%, 850px);
 }
-.section-4-wardrobe .steel-bipass-first-features {
-  margin-left: 11%;
+
+.section-4-wardrobe .steel-bipass-first-features,
+.section-4-wardrobe .steel-bipass-second-features,
+.section-5-wardrobe .aluminum-bipass-first-features,
+.section-5-wardrobe .aluminum-bipass-second-features,
+.section-7-wardrobe .aluminum-framed-features {
+  margin-left: clamp(0px, 4vw, 11%);
 }
-.section-4-wardrobe .steel-bipass-second-features {
-  margin-left: 11%;
-}
-.section-5-wardrobe .aluminum-bipass-first-features {
-  margin-left: 11%;
-}
-.section-5-wardrobe .aluminum-bipass-second-features {
-  margin-left: 11%;
-}
+
 .section-6-wardrobe {
   background-color: #939393;
 }
-.section-6-wardrobe hr{
-  max-width: 900px;
-  position: relative; 
-  right: 7%;
-}
-.section-6-wardrobe .contemporary-description{
-  max-width: 60%;
-}
-.section-7-wardrobe .aluminum-framed-intro{
-  max-width: 750px !important;
-}
-.section-7-wardrobe .aluminum-framed-features{
-  margin-left: 11%;
+
+.section-6-wardrobe hr {
+  max-width: min(100%, 900px);
+  margin-inline: auto;
+  right: auto;
 }
 
+.section-6-wardrobe .contemporary-description {
+  max-width: min(100%, 680px);
+}
 
+.section-6-wardrobe .row {
+  --bs-gutter-x: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 20px);
+}
 
+.section-6-wardrobe .row img {
+  width: 100%;
+  display: block;
+}
 
+.section-6-wardrobe .row p {
+  margin: 0;
+  text-align: center;
+}
 
+.section-7-wardrobe .aluminum-framed-intro {
+  max-width: min(100%, 750px) !important;
+}
 
+.section-4-wardrobe img,
+.section-5-wardrobe img,
+.section-7-wardrobe img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
+/* Responsive section spacing and readability */
+@media (max-width: 1199px) {
+  .section-4-wardrobe .steel-bipass-first-features,
+  .section-4-wardrobe .steel-bipass-second-features,
+  .section-5-wardrobe .aluminum-bipass-first-features,
+  .section-5-wardrobe .aluminum-bipass-second-features,
+  .section-7-wardrobe .aluminum-framed-features {
+    margin-left: clamp(0px, 2vw, 20px);
+  }
+}
 
+@media (max-width: 991px) {
+  .section-2-wardrobe h1,
+  .section-2-wardrobe h2 {
+    max-width: 100%;
+  }
+
+  .section-6-wardrobe .row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .section-6-wardrobe .contemporary-description {
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-4-wardrobe .steel-bipass-first-features,
+  .section-4-wardrobe .steel-bipass-second-features,
+  .section-5-wardrobe .aluminum-bipass-first-features,
+  .section-5-wardrobe .aluminum-bipass-second-features,
+  .section-7-wardrobe .aluminum-framed-features {
+    margin-left: 0;
+  }
+
+  .section-6-wardrobe .contemporary-description,
+  .section-7-wardrobe .aluminum-framed-intro {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-6-wardrobe .row {
+    gap: 10px;
+  }
+
+  .section-4-wardrobe p,
+  .section-5-wardrobe p,
+  .section-6-wardrobe p,
+  .section-7-wardrobe p,
+  .section-7-wardrobe li {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
 

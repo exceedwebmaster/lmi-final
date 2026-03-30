@@ -4,6 +4,11 @@
   position: relative;
   overflow: hidden;
   background: none;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: clamp(16px, 3vw, 36px);
 }
 
 .initial-landing::before {
@@ -24,38 +29,42 @@
 }
 
 .initial-landing > div:first-of-type > h3 {
-color: #e6e5e5;
-font-weight: 380!important;
+  color: #e6e5e5;
+  font-weight: 380 !important;
 }
 
 .index-hero-1 {
-  margin-top: 250px;
-  padding-left: 5%;
+  margin-top: clamp(120px, 22vh, 250px);
+  padding-left: clamp(8px, 4vw, 5%);
+  padding-right: clamp(8px, 2vw, 24px);
 }
 
 .index-hero-1 h1 {
-  max-width: 850px; 
-  text-shadow: 0 0 10px white; 
+  max-width: min(850px, 94vw);
+  text-shadow: 0 0 10px white;
 }
 
 
 .index-hero-2 {
   position: absolute;
-  bottom: 40px;
-  right: 6%;
+  bottom: clamp(18px, 4vw, 40px);
+  right: clamp(12px, 4vw, 6%);
+  left: clamp(12px, 4vw, 6%);
   text-shadow: 0 0 5px black;
   background-color: rgba(64, 64, 64, 0.3);
+  border-radius: 8px;
+  padding: clamp(12px, 3vw, 24px) !important;
 }
 
 
 
-@media (max-width: 530px) {
+@media (max-width: 767px) {
   .index-hero-1 {
     display: none !important;
   }
 }
 
-@media (min-width: 531px) {
+@media (min-width: 768px) {
   .index-hero-2 {
     display: none !important;
   }
@@ -63,13 +72,15 @@ font-weight: 380!important;
 
 .explore-landing {
   position: absolute;
-  bottom: 3%;
-  right: 3%;
+  bottom: clamp(8px, 3%, 32px);
+  right: clamp(10px, 3vw, 3%);
 }
 
-@media(max-width: 530px) {
+@media (max-width: 767px) {
   .explore-landing {
-    bottom: 0px;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 10px;
   }
 }
 
@@ -79,22 +90,22 @@ font-weight: 380!important;
 }
 
 .section-2 > div:first-of-type h2 {
-  max-width: 20%;
+  max-width: min(100%, 320px);
 }
 
 .section-2 > div:first-of-type a {
-  border: 1px solid white; 
-  width: 40% !important;
-  max-width: 175px;
+  border: 1px solid white;
+  width: min(100%, 220px) !important;
+  max-width: 220px;
 }
 
 .section-2 > div:nth-of-type(2) div:first-of-type {
-  max-width: 20%;
+  max-width: min(100%, 330px);
 }
 
-.about-us-button{
-  border: 1px solid white; 
-  white-space: nowrap;
+.about-us-button {
+  border: 1px solid white;
+  white-space: normal;
   transition: transform .25s ease-in-out, box-shadow .25s ease-in-out;
 }
 
@@ -108,8 +119,7 @@ font-weight: 380!important;
 }
 
 .integrity {
-  width: 88%;
-  max-width: 786px;
+  width: min(100%, 786px);
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -129,22 +139,22 @@ font-weight: 380!important;
   }
 }
 .explore-product-text{
-  max-width: 60%;
+  max-width: min(100%, 24ch);
 }
 .shower-enclosures-text-description{
-  max-width: 450px;
+  max-width: min(100%, 450px);
 }
 .wardrobe-doors-description{
-  max-width: 450px;
+  max-width: min(100%, 450px);
 }
 
 .mirror-frames-led-description {
-  max-width: 510px;
+  max-width: min(100%, 510px);
   
 }
 .product-offerings {
+  width: min(88%, 1300px);
   max-width: 1300px;
-  width: 88%;
   margin-inline: auto;
 }
 @media(min-width: 768px) {
@@ -157,15 +167,14 @@ font-weight: 380!important;
 
 
 .specialty-products-services-image {
-  width: 88%;
+  width: min(88%, 1300px);
   margin-inline: auto;
 }
 
 @media(min-width: 1600px) {
   .specialty-products-services-image {
-    margin-left: 13%;
-    margin-right: 5%;
-    width: auto;
+    width: min(82%, 1480px);
+    margin-inline: auto;
   }
 }
 
@@ -188,16 +197,17 @@ font-weight: 380!important;
 }
 
 .section-4 > div > div:first-of-type h2{
-  max-width: 50%;
+  max-width: min(100%, 20ch);
 }
 
 .section-4 > div > p{
-  max-width: 755px; 
-  margin-top: 5em !important;
+  max-width: min(100%, 755px);
+  margin-top: clamp(16px, 4vw, 48px) !important;
 }
 
 .section-4 > div > a{
   border: 1px solid white;
+  width: min(100%, 300px);
   max-width: 300px;
 }
 
@@ -222,7 +232,7 @@ font-weight: 380!important;
 }
 
 .section-5 > div > h2 {
-  max-width: 40%;
+  max-width: min(100%, 20ch);
 }
 
 #carouselExample button span:first-child{
@@ -267,8 +277,7 @@ font-weight: 380!important;
 
 .lmi-contact button,
 .rawring {
-
-  width: 50%;
+  width: min(100%, 260px);
   border: none;
 }
 
@@ -311,14 +320,14 @@ font-weight: 380!important;
 
 .contact-form-section {
   background-color: #404040;
-  padding-inline: 9%;
-  padding-top: 7%;
-  padding-bottom: 7%;
+  padding-inline: clamp(16px, 6vw, 9%);
+  padding-top: clamp(36px, 7vw, 96px);
+  padding-bottom: clamp(36px, 7vw, 96px);
 }
 
 .contact-form-section > div:nth-of-type(1) h3{
-  max-width: 800px; 
-  margin-bottom: 7%;
+  max-width: min(100%, 800px);
+  margin-bottom: clamp(20px, 5vw, 7%);
 }
 
 .contact-form-section button {
@@ -335,15 +344,71 @@ font-weight: 380!important;
 
 
 .home-2nd-section {
-  margin-top: 0%;
-  margin-left: 20%;
+  margin-top: 0;
+  margin-left: 0;
 }
 
 @media(min-width: 993px) {
   .home-2nd-section {
-    margin-top: 26% !important;
-    margin-left: 0%;
+    margin-top: clamp(10px, 7vw, 110px) !important;
+    margin-left: 0;
+  }
+}
 
+/* Responsive tightening for home sections */
+@media (max-width: 1199px) {
+  .product-offerings,
+  .specialty-products-services-image {
+    width: min(90%, 1300px);
+  }
+
+  .section-4 > div > div:first-of-type h2,
+  .section-5 > div > h2 {
+    max-width: min(100%, 24ch);
+  }
+}
+
+@media (max-width: 991px) {
+  .section-2 > div:first-of-type h2,
+  .section-2 > div:nth-of-type(2) div:first-of-type,
+  .explore-product-text {
+    max-width: 100%;
+  }
+
+  .about-us-button {
+    width: min(100%, 240px);
+  }
+}
+
+@media (max-width: 767px) {
+  .initial-landing {
+    padding-top: clamp(90px, 18vw, 130px);
+  }
+
+  .product-offerings,
+  .specialty-products-services-image {
+    width: min(92%, 1300px);
+  }
+
+  .section-2 > div:first-of-type a,
+  .about-us-button,
+  .expertise-learn-more {
+    width: min(100%, 260px) !important;
+  }
+
+  .contact-form-section form {
+    padding: 20px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .product-offerings,
+  .specialty-products-services-image {
+    width: min(94%, 1300px);
+  }
+
+  #carouselExample button span:first-child {
+    padding: 10% !important;
   }
 }
 
@@ -420,5 +485,6 @@ font-weight: 380!important;
   66%  {background-position:-30px 0, 10px 40px, 20px 20px}
   100% {background-position:-30px 0, 10px 40px, 50px 20px}
 }
+
 
 
