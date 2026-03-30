@@ -54,10 +54,7 @@
   background-color: rgba(64, 64, 64, 0.3);
   border-radius: 8px;
   padding: clamp(12px, 3vw, 24px) !important;
-<<<<<<< HEAD
   margin-bottom: 200px;
-=======
->>>>>>> eb2a5fd725bfca594288ac51000f958949680c15
 }
 
 
@@ -403,11 +400,7 @@
   .section-2 > div:first-of-type a,
   .about-us-button,
   .expertise-learn-more {
-<<<<<<< HEAD
     width: min(100%, 160px) !important;
-=======
-    width: min(100%, 260px) !important;
->>>>>>> eb2a5fd725bfca594288ac51000f958949680c15
   }
 
   .contact-form-section form {
