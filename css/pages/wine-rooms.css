@@ -1,29 +1,70 @@
 /* Wine Rooms Page */
-/* Section 1 */
 .initial-landing-wine-rooms {
-  background-image: url("/assets/images/wine-rooms/Wine\ Cellars\ 1.webp");
+  background-image: url("/assets/images/wine-rooms/Wine Cellars 1.webp");
   background-position: center;
   background-size: cover;
 }
 
-.section-2-wine h1, .section-2-wine h2 {
-  max-width: 30%;
+.section-2-wine h1,
+.section-2-wine h2 {
+  max-width: min(100%, 20ch);
+  margin-inline: auto;
 }
 
 .section-3-wine p {
-  max-width: 750px !important;
+  max-width: min(100%, 750px) !important;
 }
 
 .section-4-wine {
   background-color: #4A5509;
-  padding-inline: 0%;
-  padding-top: 4%;
-  padding-bottom: 4%;
+  padding-inline: clamp(16px, 4vw, 36px);
+  padding-top: clamp(20px, 4vw, 56px);
+  padding-bottom: clamp(20px, 4vw, 56px);
+}
+
+.section-4-wine h2,
+.section-4-wine p {
+  max-width: min(100%, 1200px);
+  margin-inline: auto;
 }
 
 .section-4-wine p {
-  max-width: 1200px;
+  line-height: 1.2;
 }
 
+.wine-gallery-grid {
+  --bs-gutter-x: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 24px);
+}
 
+.wine-gallery-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 991px) {
+  .section-2-wine h1,
+  .section-2-wine h2 {
+    max-width: 100%;
+  }
+
+  .section-4-wine h2,
+  .section-4-wine p {
+    max-width: min(100%, 900px);
+  }
+}
+
+@media (max-width: 576px) {
+  .wine-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .section-4-wine {
+    padding-inline: 14px;
+  }
+}
 

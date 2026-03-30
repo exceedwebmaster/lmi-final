@@ -8,7 +8,7 @@
 
 /* Section 2 */
 .about-intro {
-  margin-top: clamp(12px, 2vw, 32px);
+  margin-top: clamp(90px, 11vw, 150px);
   margin-bottom: clamp(16px, 2.5vw, 38px);
   padding-inline: clamp(18px, 3vw, 52px);
 }
@@ -23,7 +23,7 @@
 }
 
 .section-2-about h1 {
-  max-width: 760px;
+  max-width: min(100%, 760px);
   border-bottom: 1px solid rgba(187, 186, 186, 0.914);
   padding-bottom: 14px;
   margin: 0;
@@ -31,7 +31,7 @@
 }
 
 .section-2-about h2 {
-  max-width: 760px;
+  max-width: min(100%, 760px);
   margin-top: 18px;
   font-size: clamp(13px, 1.05vw, 20px);
   letter-spacing: 0.01em;
@@ -90,7 +90,7 @@
 
 /* Section 5 */
 .section-5-about p {
-  max-width: 750px !important;
+  max-width: min(100%, 750px) !important;
 }
 
 /* Section 6 */
@@ -109,16 +109,16 @@
 
 /* Section 7  */
 .section-7-about h2 {
-  max-width: 40%;
+  max-width: min(100%, 20ch);
 }
 
 .section-7-about h3{
-  font-size: 40px;
- letter-spacing:  1px;
+  font-size: clamp(24px, 4vw, 40px);
+  letter-spacing: 1px;
 }
 
 .section-7-about .team-line div {
-  width: 150px; 
+  width: clamp(120px, 20vw, 150px);
   background-color: #4A5509; 
   height: 2px; 
   opacity: 1;
@@ -131,8 +131,9 @@
   padding-bottom: 2%;
   border: 1px solid #000000;
   margin-inline: auto;
-  width: 40%;
+  width: min(100%, 370px);
   max-width: 370px;
+  justify-content: center;
   transition: background-color .25s ease-in-out,
               transform .25s ease-in-out,
               box-shadow .25s ease-in-out;
@@ -186,12 +187,15 @@
   overflow: hidden;
   transform: translateZ(0);
   transition: box-shadow .28s ease, transform .28s ease;
+  border-radius: 4px;
 }
 
 .section-7-about .ex-hover-img{
   display: block;
   width: 100%;
-  height: 4007007045056550400500700675auto;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
   transform: scale(1);
   transition: transform .38s ease;
   will-change: transform;
@@ -247,13 +251,14 @@
 .corporate-top-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  margin-bottom: 30px;
+  gap: clamp(12px, 2vw, 22px);
+  margin-bottom: clamp(16px, 3vw, 30px);
 }
 
 .corporate-top-image img {
   width: 100%;
-  height: 400px;
+  aspect-ratio: 16 / 10;
+  min-height: 220px;
   object-fit: cover;
   display: block;
 }
@@ -266,7 +271,8 @@
 
 .corporate-bottom-image img {
   width: 100%;
-  height: 500px;
+  aspect-ratio: 16 / 9;
+  min-height: 240px;
   object-fit: cover;
   display: block;
 }
@@ -276,11 +282,11 @@
 }
 
 .corporate-bottom-text p {
-  max-width: 300px;
+  max-width: min(100%, 300px);
   font-size: clamp(14px, 0.92vw, 17px);
   line-height: 1.58;
-  margin-bottom: 70px;
-  margin-left: 70px;
+  margin-bottom: clamp(16px, 3vw, 40px);
+  margin-left: 0;
   color: #4a4a4a;
 }
 
@@ -308,6 +314,18 @@
   }
 }
 
+@media (max-width: 767px) {
+  .section-7-about .row > .col,
+  .section-7-about .row > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .section-7-about a {
+    width: min(100%, 300px);
+  }
+}
+
 /* Mobile */
 @media (max-width: 576px) {
   .corporate-facility-title {
@@ -323,4 +341,10 @@
   .corporate-bottom-row {
     gap: 16px;
   }
+
+  .section-7-about h2,
+  .section-7-about h3 {
+    text-align: center;
+  }
 }
+

@@ -1,15 +1,13 @@
 /* ======= FIXED NAVBAR OFFSET ======= */
 /* Prevents page content from being hidden behind fixed navbar */
 body {
-  /* padding-top: 80px - Adds top spacing to accommodate fixed navbar */
-  /* keeps content below navbar and navbar stays fixed when scrolling */
-  padding-top: 80px;
+  /* Keep top content clear of fixed navbar */
+  padding-top: clamp(72px, 8vw, 110px);
 }
 
 @media (max-width: 768px) {
   body {
-    /* Reduced padding on mobile devices */
-    padding-top: 110px;
+    padding-top: clamp(86px, 16vw, 120px);
   }
 }
 
@@ -23,15 +21,16 @@ body {
 
 
 .initial-landing-specialty{
-  margin-top: 125px;
+  margin-top: clamp(8px, 2vw, 24px);
 }
 
 .section-2-specialty h1, .section-2-specialty h2{
-  max-width: 52%;
+  max-width: min(100%, 23ch);
+  margin-inline: auto;
 }  
 
 .section-3-specialty p {
-  max-width: 750px !important;
+  max-width: min(100%, 750px) !important;
 }
 
 .section-9-specialty {
@@ -42,7 +41,7 @@ body {
 }
 
 .section-9-specialty p{
-  max-width: 800px !important;
+  max-width: min(100%, 800px) !important;
 }
 
 /* SINGLE FAMILY HOMES | CUSTOM HOMES */
@@ -51,10 +50,9 @@ body {
 .single-family-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(6, minmax(150, auto));
-  /* width: 55%; */
-  /* gap: 30px; */
+  grid-template-rows: repeat(6, minmax(150px, auto));
   column-gap: 4%;
+  row-gap: clamp(12px, 2vw, 24px);
 }
 
 .single-family-container a {
@@ -66,6 +64,7 @@ body {
 .single-family-container a img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .single-family-container div:nth-of-type(1) {
@@ -95,7 +94,7 @@ body {
 
 
 .project-highlights-title{
-  padding-bottom: 50x; /* increase to push the line down */
+  padding-bottom: 50px;
 }
 
 /* MULTI FAMILY HOMES */
@@ -104,9 +103,9 @@ body {
 .multi-family-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(6, minmax(150, auto));
-  /* width: 55%; */
+  grid-template-rows: repeat(6, minmax(150px, auto));
   column-gap: 4%;
+  row-gap: clamp(12px, 2vw, 24px);
 }
 
 
@@ -120,6 +119,7 @@ body {
 .multi-family-container a img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .multi-family-container div:nth-of-type(1) {
@@ -157,9 +157,9 @@ body {
 .high-rise-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(8, minmax(150, auto));
-  /* width: 55%; */
+  grid-template-rows: repeat(8, minmax(150px, auto));
   column-gap: 4%;
+  row-gap: clamp(12px, 2vw, 24px);
 }
 
 
@@ -172,6 +172,7 @@ body {
 .high-rise-container a img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .high-rise-container div:nth-of-type(1) {
@@ -212,8 +213,9 @@ body {
 
 .narrative-block{
   border-top: 1px solid #d6d6d6;
-  border-bottom: 1px solid #d6d6d6;  /* add this */
-  padding: 48px 0;
+  border-bottom: 1px solid #d6d6d6;
+  padding: clamp(24px, 4vw, 48px) 0;
+  width: min(92%, 1100px);
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -230,17 +232,59 @@ body {
 
 .narrative-subtitle{
   font-family: "Libre Baskerville", serif;
-  font-size: 30px;
+  font-size: clamp(24px, 2.2vw, 30px);
   font-weight: 400;
-  margin: 0 0 26px 0;
+  margin: 0 0 clamp(14px, 2.2vw, 26px) 0;
 }
 
 .narrative-text{
   font-family: "Lato", sans-serif;
-  font-size: 18px;
+  font-size: clamp(16px, 1.2vw, 18px);
   line-height: 1.8;
   color: #555;
   margin: 0;
-  max-width: 980px;
+  max-width: min(100%, 980px);
 }
+
+/* Responsive project-gallery collapse */
+@media (max-width: 991px) {
+  .single-family-container,
+  .multi-family-container,
+  .high-rise-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+    gap: 14px;
+  }
+
+  .single-family-container > div,
+  .multi-family-container > div,
+  .high-rise-container > div {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .single-family-container,
+  .multi-family-container,
+  .high-rise-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .single-family-container,
+  .multi-family-container,
+  .high-rise-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .section-2-specialty h1,
+  .section-2-specialty h2 {
+    max-width: 100%;
+  }
+}
+
 

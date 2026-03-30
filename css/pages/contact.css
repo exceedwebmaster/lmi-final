@@ -7,17 +7,24 @@
 }
 
 .section-2-contacts h1 {
-  max-width: 40%;
+  max-width: min(100%, 18ch);
+  margin-inline: auto;
+}
+
+.contact-body {
+  margin-top: clamp(96px, 10vw, 150px) !important;
 }
 
 .section-3-contacts iframe {
-  height: 60vh;
-  border-radius: 10px; /* remove !important unless needed */
+  height: min(65vh, 700px);
+  min-height: clamp(280px, 52vh, 520px);
+  border-radius: 10px;
+  width: 100%;
 }
 
 .section-3-contacts .font-size-24 {
-  font-size: 19px  !important ;   /* change size here */
-  font-weight: 400;  /* change weight here */
+  font-size: clamp(16px, 1.3vw, 19px) !important;
+  font-weight: 400;
 }
 
 .contact-top-bar {
@@ -26,12 +33,12 @@
 
 .section-4-contacts {
   background-color: #efefef;
-  padding: 72px 42px 86px;
+  padding: clamp(34px, 5vw, 72px) clamp(16px, 3.5vw, 42px) clamp(44px, 6vw, 86px);
 }
 
 .section-4-contacts .contact-grid {
-  --bs-gutter-x: 72px;
-  --bs-gutter-y: 62px;
+  --bs-gutter-x: clamp(20px, 5vw, 72px);
+  --bs-gutter-y: clamp(24px, 5vw, 62px);
   margin: 0;
 }
 
@@ -83,7 +90,7 @@
 
 .contact-btn {
   margin-top: 10px;
-  width: 170px;
+  width: min(100%, 210px);
   min-height: 39px;
   border: 1px solid #a6a6a6;
   background: transparent;
@@ -134,11 +141,11 @@
 
 @media (max-width: 1199px) {
   .contact-body {
-    margin-top: 170px !important;
+    margin-top: clamp(90px, 12vw, 150px) !important;
   }
 
   .section-4-contacts {
-    padding: 54px 28px 70px;
+    padding: 54px 24px 70px;
   }
 
   .section-4-contacts .contact-grid {
@@ -149,7 +156,7 @@
 
 @media (max-width: 576px) {
   .contact-body {
-    margin-top: 50px !important;
+    margin-top: clamp(74px, 20vw, 110px) !important;
   }
 
   .section-4-contacts {
@@ -166,6 +173,11 @@
   }
 
   .contact-location {
-    max-width: 360px;
+    max-width: min(100%, 360px);
+  }
+
+  .contact-btn {
+    width: min(100%, 240px);
   }
 }
+

@@ -1,32 +1,45 @@
 // ================= Accordion =================
-// Accordion hover event bindings
+// Hover + click/tap accordion support
 const accordionItems = document.querySelectorAll('.accordionItem');
-accordionItems.forEach(item => {
-  // Accordion expand on hover
-  item.addEventListener('mouseenter', function () {
-    const accordionDescription = this.querySelector('.accordionDescription');
-    const plusIcon = this.querySelector('.plusIcon');
-    const minusIcon = this.querySelector('.minusIcon');
+const canHover = window.matchMedia('(hover: hover)').matches;
 
-    if (accordionDescription) {
-      accordionDescription.style.maxHeight = accordionDescription.scrollHeight + 'px';
-    }
-    if (plusIcon) plusIcon.style.display = 'none';
-    if (minusIcon) minusIcon.style.display = 'block';
-  });
+function setAccordionOpen(item, isOpen) {
+  const accordionDescription = item.querySelector('.accordionDescription');
+  const plusIcon = item.querySelector('.plusIcon');
+  const minusIcon = item.querySelector('.minusIcon');
+  const button = item.querySelector('.accordionButton');
 
-  // Accordion collapse on leave
-  item.addEventListener('mouseleave', function () {
-    const accordionDescription = this.querySelector('.accordionDescription');
-    const plusIcon = this.querySelector('.plusIcon');
-    const minusIcon = this.querySelector('.minusIcon');
+  item.classList.toggle('is-open', isOpen);
+  if (button) button.setAttribute('aria-expanded', String(isOpen));
 
-    if (accordionDescription) {
-      accordionDescription.style.maxHeight = null;
-    }
-    if (plusIcon) plusIcon.style.display = 'block';
-    if (minusIcon) minusIcon.style.display = 'none';
-  });
+  if (accordionDescription) {
+    accordionDescription.style.maxHeight = isOpen
+      ? `${accordionDescription.scrollHeight}px`
+      : null;
+  }
+  if (plusIcon) plusIcon.style.display = isOpen ? 'none' : 'block';
+  if (minusIcon) minusIcon.style.display = isOpen ? 'block' : 'none';
+}
+
+accordionItems.forEach((item) => {
+  const button = item.querySelector('.accordionButton');
+  if (button) button.setAttribute('aria-expanded', 'false');
+
+  if (canHover) {
+    item.addEventListener('mouseenter', () => setAccordionOpen(item, true));
+    item.addEventListener('mouseleave', () => setAccordionOpen(item, false));
+  }
+
+  if (button) {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      const isOpen = item.classList.contains('is-open');
+      accordionItems.forEach((otherItem) => {
+        if (otherItem !== item) setAccordionOpen(otherItem, false);
+      });
+      setAccordionOpen(item, !isOpen);
+    });
+  }
 });
 
 // ================= HEADER COLOR CHANGE ON SCROLL =================
