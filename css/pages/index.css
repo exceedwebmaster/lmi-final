@@ -54,6 +54,7 @@
   background-color: rgba(64, 64, 64, 0.3);
   border-radius: 8px;
   padding: clamp(12px, 3vw, 24px) !important;
+  margin-bottom: 200px;
 }
 
 
@@ -97,6 +98,12 @@
   border: 1px solid white;
   width: min(100%, 220px) !important;
   max-width: 220px;
+  transition: transform .25s ease-in-out, box-shadow .25s ease-in-out;
+}
+
+.section-2 > div:first-of-type a:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
 }
 
 .section-2 > div:nth-of-type(2) div:first-of-type {
@@ -393,7 +400,7 @@
   .section-2 > div:first-of-type a,
   .about-us-button,
   .expertise-learn-more {
-    width: min(100%, 260px) !important;
+    width: min(100%, 160px) !important;
   }
 
   .contact-form-section form {
