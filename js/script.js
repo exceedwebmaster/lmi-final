@@ -504,6 +504,7 @@ function sendEmail(e) {
     const nav = document.querySelector('nav');
     const h = nav ? nav.offsetHeight : 0;
     document.documentElement.style.scrollPaddingTop = h + 'px';
+    document.documentElement.style.setProperty('--site-navbar-height', h + 'px');
   }
 
   // Scroll to the element AFTER layout is stable

@@ -15,7 +15,7 @@
 .initial-landing-enclosures::before {
   content: "";
   position: absolute;
-  inset: -10% 0;
+  inset: -10% -3.6%;
   background-image: url("/assets/images/enclosures/Shower\ Enclosure_Landing\ Page\ 2.png");
   background-position: center;
   background-size: cover;
@@ -39,7 +39,7 @@
   .initial-landing-enclosures {
     height: auto !important;
     min-height: 0;
-    overflow: visible;
+    overflow: hidden;
   }
 
   .initial-landing-enclosures::before {
@@ -48,7 +48,9 @@
 
   .initial-landing-enclosures-mobile-image {
     display: block;
-    width: 100%;
+    width: 107.2%;
+    max-width: none;
+    margin-left: -3.6%;
     height: auto;
   }
 }

@@ -38,6 +38,7 @@ iframe {
   --primary-color: #585858;
   --secondary-color: #ffffff;
   --tertiary-color: #404040;
+  --site-navbar-height: 0px;
 
   /*Font Variables*/
   --primary-font: "Lunasima";
@@ -306,6 +307,16 @@ iframe {
 .navbar-toggler:active {
   outline: none;
   box-shadow: none;
+}
+
+/* Keep product landing heroes fully visible below fixed navbar */
+body:not(.index-page) #site-navbar + section.initial-landing-enclosures,
+body:not(.index-page) #site-navbar + section.initial-landing-wardrobe-doors,
+body:not(.index-page) #site-navbar + section.initial-landing-room-dividers,
+body:not(.index-page) #site-navbar + section.initial-landing-mirrors,
+body:not(.index-page) #site-navbar + section.initial-landing-organizers,
+body:not(.index-page) #site-navbar + section.initial-landing-wine-rooms {
+  margin-top: var(--site-navbar-height, 0px);
 }
 
 @media (min-width: 1200px) {
