@@ -267,17 +267,19 @@ iframe {
 .navbar-brand {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   width: clamp(96px, 10vw, 170px);
   min-width: 96px;
-  margin-right: clamp(8px, 1.2vw, 20px);
+  margin-right: clamp(8px, 1.2vw, 15px);
 }
 
 .navbar-brand img {
-  width: auto;
-  max-width: 100%;
-  max-height: clamp(48px, 5vw, 84px);
+  width: 100%;
   height: auto;
+  max-height: clamp(48px, 5vw, 84px);
+  aspect-ratio: auto;
   display: block;
+  object-fit: contain;
 }
 
 .navbar-collapse {
